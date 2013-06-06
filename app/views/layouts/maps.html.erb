@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<% cache 'header' do %>
+<%=render :partial => '/beavertracks/header'%>
+<%end%>
+<meta name="viewport" content="width=device-width, user-scalable=yes, height=device-height" />
+<meta name="keywords" content= "<%= @meta_keywords %>" />
+<meta name="description" content= "<%= @meta_description %>" />
+<% cache 'map_js' do %>
+<script src="/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+<%end%>
+<%= GMap.header %>
+<%= @map.to_html %>
+<title><%= @title %> | BeaverTracks</title>
+</head>
+<body onorientationchange="windowResize();" onunload="GUnload()">
+<%= yield %>
+<noscript><b>JavaScript must be enabled in order for you to use these Maps.</b> 
+      However, it seems JavaScript is either disabled or not supported by your browser. 
+      To view these Maps, enable JavaScript by changing your browser options, and then 
+      try again.
+ </noscript>
+ <script type="text/javascript">
+//<![CDATA[
+
+function windowResize() {
+    $("#container").height( $(window).height() - $("#header").height());
+    $("#container").width( $(window).width());
+}
+
+$(document).ready(function(){
+    windowResize();
+	window.scrollTo(0, 1);
+
+    $(window).resize(function() {
+        windowResize();
+    });
+});
+//]]>  
+</script>
+<% if ENV['RAILS_ENV'] == 'production' %>
+<%= percent_mobile_track(81307369870300881895320856178269914580) %>
+<% end %>
+</body>
+</html>

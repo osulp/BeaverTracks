@@ -1,0 +1,29 @@
+<% cache :action => 'index', :part =>'big_top' do %>
+<div id='header'>
+	<div id='big_header'>
+		<ol>
+			<li><%=image_tag '/images/BeaverTracksFinal.png'%></li>
+			<li class="text"><h1>BeaverTracks</h1></li>
+		</ol>
+	</div>   
+</div>
+<div id ="container">
+<div id="index">
+	<div id="content">
+		<h2>Historical Locations <br />&amp; Walking Tour</h2>
+		<h3>Oregon State University <br /> Corvallis, Oregon</h3>
+	</div>
+<%end%>
+	<div id='nav_box'>
+	<ol>
+	<li><%= link_to 'Map View', maps_path, :class=> 'map' %></li>
+	<li><%= link_to 'Locations A-Z', buildings_path, :class => 'building'%></li>
+	<li><%= link_to 'Walking Tour', nearby_path, :class => 'tour'%></li>
+	<li><%= link_to 'About BeaverTracks', about_beavertracks_path, :class => 'about' %></li>
+	</ol>
+	</div>
+	<div id = "content">
+		<h3>Historical Images Provided by OSU Libraries' Archives.</h3>
+	</div>
+</div>
+</div>

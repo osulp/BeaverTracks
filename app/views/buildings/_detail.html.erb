@@ -1,0 +1,20 @@
+<% truncated_comment = truncate_comment(description) %>
+<span id="image"><%= link_to image_tag(url, :class => 'site_photo', :title => name, :border => 0), image_building_url(building, :name => name, :url => og_url) %></span>
+<span id ="description">
+   <h2><%=name%></h2>
+  <div id="truncated_comment_body">
+    <%= truncated_comment %>
+  </div>
+  <div id="comment_body" style="display:none">
+    <%= truncate_comment(description, description.size) %>
+  </div>
+
+  <% if description.size > 155 or description[0..155].include?("\n") %>
+    <div id="show_more">
+    	    <a href="#" onclick="$('show_more').toggle();$('show_less').toggle();$('comment_body').toggle();$('truncated_comment_body').toggle();; return false;">More</a>
+	</div>
+    <div id="show_less" style="display:none">
+    	    <a href="#" onclick="$('show_more').toggle();$('show_less').toggle();$('comment_body').toggle();$('truncated_comment_body').toggle();; return false;">Less</a>
+  	</div>
+  <% end %>
+</span>

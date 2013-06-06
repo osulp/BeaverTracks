@@ -1,0 +1,29 @@
+<div id="header">
+	<%=render :partial => '/beavertracks/top'%>
+	<h1>About BeaverTracks</h1>
+</div>
+<% cache :action => 'about', :part =>'content' do %>
+<div id ="about">
+	<p>BeaverTracks is an interactive mobile guide and walking tour of Oregon State University's historical locations.
+	   <p> 
+	   At each of the 22 locations, you get a brief history  and can browse a catalog of historic images. Depending on your mobile device you  can  also take a walking tour of the historic sites.
+	   </p>
+</div>
+<div id='nav_box'>
+	<ol>
+	<li><%=link_to 'About the Tour', instructions_beavertracks_path, :class => 'about'%></li>
+	<li><a href ="#credit" class ='credit'>Credits</a></li>
+	<li>
+		<a href = "mailto:kim.griggs@oregonstate.edu?subject=Beaver Tracks Feedback" class = 'feedback'>Feedback &amp; Comments</a>
+	</li>
+	</ol>
+	</div>
+<div id ="about">
+<p>	<a name="credit"><%=image_tag '/images/expert.png'%></a>
+All images in BeaverTracks are from the OSU Archives collections and permission must be obtained to publish or permanently display reproductions of the materials. Please contact <a href="mailto:archives@oregonstate.edu">OSU Archives</a> with requests or questions.
+ All images in BeaverTracks can also be found on <a href ="http://www.flickr.com/photos/osuarchives/">OSU Archives Flickr photostream</a>.
+</p>
+<p>BeaverTracks was developed by OSU Libraries and OSU Archives staff. It was inspired by NCSU Libraries' project WolfWalk. The virtual walking tour is based on the print publication <i>OSU Buildings & Services Walking Tour</i>. 
+	</p>
+</div>	
+<%end%>

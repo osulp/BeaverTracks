@@ -1,0 +1,36 @@
+<%=render :partial => '/beavertracks/top'%>
+<div id ="container">
+<% model_name ||= "patron" %>
+<div id="geo-mere-laal-wait" style="display:none;" > 
+<div id="content">
+	<h3>Loading... <%= image_tag "/images/spinner.gif", :id => "spinner", :alt => "Spinner"%> </h3>
+ </div>
+</div>
+<div id="geo-mere-laal-fields" style="display:none;"> 
+<p>Enter you current latitude and longitude</p> 
+<% form_tag(patron_path(@patron), :id =>'skip', :method => :put) do  -%>
+  <%= label model_name,"lat","Latitude" -%>
+  <%= latitude_field model_name, "lat", 'value' => @lat%>   
+  <br>
+  <%= label model_name,"lng","Longitude" -%>    
+  <%= longitude_field model_name, "lng", 'value' => @lng %> 
+  <%= submit_tag 'Save' %>
+<% end %> 
+
+</div>
+</div>
+<script>
+  if(geo_position_js.init())
+  { 
+     document.getElementById("geo-mere-laal-wait").style.display = "block"; 
+     GeoMereLaal.onReceive = function(){
+	   document.forms["skip"].submit();
+     }
+  } else {
+  	 alert("The Walking Tour may not work on your device. This Location is a best guess.")
+      document.forms["skip"].submit();
+  }
+  
+
+</script>
+

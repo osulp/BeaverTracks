@@ -1,0 +1,91 @@
+//Author: Abhishek Parolkar ( abhishek@parolkar.com )
+
+
+
+GeoMereLaal = function(){
+ 
+  return {
+    lat: function(){
+      return this.getCookie("latitude"); 
+      },
+    lng: function(){
+      return this.getCookie("longitude");
+      },
+    setCookie: function (c_name,value,expiremins)
+	  {
+	    var exdate=new Date();
+	    exdate.setTime(exdate.getTime()+expiremins*60*1000);
+	    document.cookie=c_name+ "=" +escape(value)+
+	    ((expiremins==null) ? "" : ";expires="+exdate.toUTCString());
+	  },
+	getCookie: function (c_name)
+	  {
+	    if (document.cookie.length>0)
+	      {
+	        c_start=document.cookie.indexOf(c_name + "=");
+	        if (c_start!=-1)
+	          {
+	          c_start=c_start + c_name.length+1;
+	          c_end=document.cookie.indexOf(";",c_start);
+	          if (c_end==-1) c_end=document.cookie.length;
+	          return unescape(document.cookie.substring(c_start,c_end));
+	          }
+	      }
+	return "";
+	},
+	dataExpires: 1, //These are number of minutes
+    fetch: function(){
+      if(geo_position_js.init())
+        { 
+		  	geo_position_js.getCurrentPosition(function(position) {    
+	            
+		        GeoMereLaal.setCookie("latitude",position.coords.latitude,GeoMereLaal.dataExpires);
+		        GeoMereLaal.setCookie("longitude",position.coords.longitude,GeoMereLaal.dataExpires); 
+		        GeoMereLaal.successCallbacks();
+		        
+		      },GeoMereLaal.onError,{enableHighAccuracy:true,maximumAge:0});
+	          return true;
+        }else{return false;}
+      },
+    request:function(){ 
+      var lat = this.lat();
+      var lng = this.lng();
+      if(lat =='' || lng == '')
+        {
+          this.fetch();
+        }else{
+          GeoMereLaal.successCallbacks();
+        } 
+      
+      }, 
+    successCallbacks:function(){ 
+      GeoMereLaal.updateLatitude_callback();
+      GeoMereLaal.updateLongitude_callback();
+      GeoMereLaal.onReceive();
+
+    },
+    onReceive:function(){         
+     //This is a stub to be overridden by user's code 
+    },
+    onError:function(error){         
+     //This can be overridden by user's code
+     //alert('Attempt to get location failed: ' + error.message); 
+    },
+    updateLatitude_callback:function(){
+    //This is a callback stub to be overridden by user level code   
+    },
+    updateLongitude_callback:function(){
+    //This is a callback stub to be overridden by user level code   
+    },
+    reverseCoderHook:function(){         
+     //This is a stub to be overridden by GMLReverseCoder's code 
+    }
+
+}}();              
+  
+
+
+
+
+
+

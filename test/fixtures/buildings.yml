@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  lat: 1.5
+  lng: 1.5
+  flickr_id: 1
+  name: MyString
+  year: MyString
+  description: MyText
+  set: MyString
+  position: 1
+
+two:
+  lat: 1.5
+  lng: 1.5
+  flickr_id: 1
+  name: MyString
+  year: MyString
+  description: MyText
+  set: MyString
+  position: 1

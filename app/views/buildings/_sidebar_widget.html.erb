@@ -1,0 +1,13 @@
+<div id="flickr_nav">
+  <ol>
+    <% photos.each do |p| -%>
+	<% photo_title = (truncate(p.title, :length => 55, :omission =>"...") )%>
+      <li>
+         	<%= link_to_remote(image_tag(p.url(:square), :class => 'flickr_photo', :title => p.title, :border => 0)+"<span class='image_span'>"+ photo_title +"</span>",
+				{:url =>{:controller => :buildings,  :action => 'show_detail', :description => p.description, :url => p.url(:square), :og_url => p.url(:original), :name =>p.title}, 
+				:update => "detail", :complete => 'Element.scrollTo("top")'},
+ 				:href => '#top' )%>
+      </li>
+    <% end -%>
+  </ul>
+</div>
