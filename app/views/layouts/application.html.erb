@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Beavertracks</title>
+  <title><%= @title %> BeaverTracks</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <%= render :partial => '/beavertracks/head'%>
 </head>
 <body>
 
+<%# cache 'header' do %>
+  <%#= render :partial => '/beavertracks/header'%>
+<%# end %>
+
+
 <%= yield %>
+
+<% cache 'footer' do %>
+<%= render :partial => '/beavertracks/footer'%>
+<% end %>
 
 </body>
 </html>

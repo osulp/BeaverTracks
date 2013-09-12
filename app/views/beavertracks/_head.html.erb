@@ -4,5 +4,9 @@
 <link rel="apple-touch-icon" href="/images/BeaverTracksFinal.png" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="Cache-Control" content="max-age=172800" />
+
+<% if ENV['RAILS_ENV'] == 'production' %>
 <%= render :partial => "beavertracks/analytics_snippet" %>
+<% end %>
+
 <%= stylesheet_link_tag 'scaffold' %>
