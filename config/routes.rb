@@ -1,5 +1,9 @@
 Beavertracks::Application.routes.draw do
 
+  devise_for :users
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :buildings
 
   # You can have the root of your site routed with "root"
