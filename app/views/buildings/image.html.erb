@@ -1,0 +1,13 @@
+<h1><%= @title %></h1>
+
+<% cache  :action => 'show', :part => 'content' do %>
+
+<div id="container">
+<div id="detail">
+
+  <span id="image"><%= link_to image_tag(@building.flickr_orig_url, :class => 'flickr_photo_large', :title => @building.name, :border => 0), File.join('/buildings', @building.id.to_s) %></span>
+
+</div>
+</div>
+
+<%end%>

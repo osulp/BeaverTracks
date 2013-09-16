@@ -12,4 +12,10 @@ class BuildingsController < ApplicationController
 
     @title = @building.name
   end
+
+  def image
+    @building = Buildings.find(params[:id])
+
+    @title = @building.name + " - Large Image"
+  end
 end
