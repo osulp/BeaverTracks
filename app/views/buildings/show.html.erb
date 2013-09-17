@@ -13,6 +13,19 @@
 
   </span>
 
+  <p>Flickr Images (<%= @building.flickr_tag %>): </p>
+  <ol>
+    <% @photos.each do |photo| %>
+    <li>
+    <% info = flickr.photos.getInfo(:photo_id => photo.id) %>
+    
+      <%= photo.title %>
+      <%= image_tag(FlickRaw.url_t(info)) %>
+    </li>
+  <% end %>
+
+  </ol> 
+
 </div>
 </div>
 
