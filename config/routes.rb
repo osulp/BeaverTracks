@@ -4,18 +4,19 @@ Beavertracks::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :buildings
-
-  match 'buildings/:id/image' => 'buildings#image'
-
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'beavertracks#index'
 
-  get "beavertracks/index"
+  get 'buildings' => 'buildings#index'
+  get 'buildings/:id' => 'buildings#show'
+  get 'buildings/:id/image' => 'buildings#image'
 
-  get "buildings/index"
+  get 'beavertracks' => 'beavertracks#index'
+  get 'beavertracks/about', as: 'about_beavertracks'
+  get 'beavertracks/instructions', as: 'instructions_beavertracks'
 
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
