@@ -83,7 +83,7 @@ li.right {right:5px; position:absolute;}
     list-style-type: none;
 	padding:0px;
 	margin:0px;
-	background: url(/images/listArrow.png) no-repeat right center;
+    background: url(<%= asset_path 'listArrow.png' %>)  no-repeat right center;
 }
 #nav ol li:first-child
 {
@@ -125,7 +125,7 @@ li.right {right:5px; position:absolute;}
     list-style-type: none;
 	padding:0px;
 	margin:0px;
-	background: url(/images/listArrow.png) no-repeat right center;
+    background: url(<%= asset_path 'listArrow.png' %>) no-repeat right center;
 }
 #nav_box ol li:last-child
 {
@@ -220,12 +220,12 @@ form{margin: 0px; padding: 0px;}
         height: 75px;
         padding: 12px 10px 32px 13px;
         margin: 0 8px 0 0;
-		background: #fff url(/images/Polaroid_Enlarge.jpg) no-repeat;
+        background: #fff url(<%= asset_path 'Polaroid_Enlarge.png' %>) no-repeat;
 }
 
 /*flickr*/
 
- #flickr_nav > ol{
+ #flickr_nav > ol {
 	font-size:18px;             /* All text content is 20 pixels */
 	font-weight:bold;
 	color:black;
@@ -239,7 +239,7 @@ form{margin: 0px; padding: 0px;}
 	border-top-style:solid;
 	line-height:29px;  /* Ensure that the height of the cell includes the line at the top of the cell  */
     list-style-type: none;
-	background: url(/images/listArrow.png) no-repeat right center;
+    background: url(<%= asset_path 'listArrow.png' %>) no-repeat right center;
 	padding: 0;
 }
 
@@ -264,7 +264,7 @@ form{margin: 0px; padding: 0px;}
         height: 75px;
         padding: 12px 10px 32px 13px;
         margin: 0 25px 0 0;
-		background: #fff url(/images/polaroid.jpg) no-repeat;
+        background: #fff url(<%= asset_path 'polaroid.png' %>) no-repeat;
 		vertical-align:middle;
 }
 
@@ -300,9 +300,9 @@ form{margin: 0px; padding: 0px;}
 #info_bubble span.right{float:right; font-size:12px; font-weight:bolder;}
 
 /*icons*/
-.map { background: url(/images/map.png) no-repeat 3px center;} 
-.building { background: url(/images/cluster.png) no-repeat 3px center;}
-.tour { background: url(/images/walking/image.png) no-repeat 3px center;}
-.about { background: url(/images/info.png) no-repeat 3px center;}
-.feedback { background: url(/images/friends.png) no-repeat 3px center;}
-.credit { background: url(/images/expert.png) no-repeat 3px center;}
+.map { background: url(<%= asset_path 'map.png' %>) no-repeat 3px center;} 
+.building { background: url(<%= asset_path 'cluster.png' %>) no-repeat 3px center;}
+.tour { background: url(<%= asset_path 'walking/image.png' %>) no-repeat 3px center;}
+.about { background: url(<%= asset_path 'info.png' %>) no-repeat 3px center;}
+.feedback { background: url(<%= asset_path 'friends.png' %>) no-repeat 3px center;}
+.credit { background: url(<%= asset_path 'expert.png' %>) no-repeat 3px center;}
