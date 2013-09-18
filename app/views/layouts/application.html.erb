@@ -11,7 +11,7 @@
 <body>
 
 <% cache 'header' do %>
-  <%= render :partial => '/beavertracks/header'%>
+  <%= render :partial => '/beavertracks/header' unless @disable_header %>
 <% end %>
 
 <% if notice %>
