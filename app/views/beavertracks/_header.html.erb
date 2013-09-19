@@ -1,7 +1,7 @@
 <div id='small_header'>
 	<ol>
 	<% cache 'nav' do %>
-	<li><%#= link_to image_tag('home_big.png'), beavertracks_path %></li>
+	<li><%= link_to image_tag('home_big.png'), beavertracks_path %></li>
 	<li class="seperator">|</li>
 	<li><%#= link_to image_tag('map_big.png'), maps_path %></li>
 	<li class="seperator">|</li>
@@ -10,6 +10,6 @@
 	<%end%>
 	<li><%#= link_to image_tag('walking_big.png'), nearby_path%></li>
 	<% cache 'info' do %>
-	<li class = "right"><%#= link_to image_tag('info_big.png'), about_beavertracks_path%></li>
+	<li class = "right"><%= link_to image_tag('info_big.png'), about_beavertracks_path%></li>
 	<%end%>
 </ol></div>

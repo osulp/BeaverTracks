@@ -1,0 +1,13 @@
+<h1><%= @title %></h1>
+
+<% cache :action => 'instructions', :part =>'content' do %>
+
+<div id ="about">
+<p>The Walking Tour is a location-based guide to OSU's campus. Using your device's GPS, the interactive walking tour finds historical locations near you and plots the directions to them on a map.</p>
+<p>To start the tour or update your position, click on the walking-man icon at the top of the page. As you walk to the various locations, continue clicking the icon to get directions to the next spot on the tour.</p>
+<p>Warning: The walking tour may be missing paths or sidewalks. Do not use as a real-time mapping system.</p>
+<h4>Supported Devices</h4>
+<p>The Walking Tour can be used on almost any device, but the accuracy of your position varies dramatically. For best results, view the The Walking Tour on a smartphone that supports geo-positioning.</p>
+</div>
+
+<% end %>	

@@ -21,7 +21,6 @@ class BuildingsController < ApplicationController
     @flickr_user_id = ENV["BEAVERTRACKS_FLICKR_USER_ID"]
 
     @photos = flickr.photos.search :user_id => @flickr_user_id, :tags => @building.flickr_tag
-
     @photos = @photos.sort_by {|a| a.title}
   end
 
