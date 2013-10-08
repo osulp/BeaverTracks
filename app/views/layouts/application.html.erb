@@ -24,6 +24,8 @@
 
 <%= yield %>
 
+<%= yield :scripts %>
+
 <% cache 'footer' do %>
 <%= render :partial => '/beavertracks/footer'%>
 <% end %>

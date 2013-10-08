@@ -8,13 +8,15 @@ Beavertracks::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'beavertracks#index'
 
-  get 'buildings' => 'buildings#index'
+  resources :buildings
   get 'buildings/:id' => 'buildings#show'
   get 'buildings/:id/image' => 'buildings#image'
 
   get 'beavertracks' => 'beavertracks#index'
   get 'beavertracks/about', as: 'about_beavertracks'
   get 'beavertracks/instructions', as: 'instructions_beavertracks'
+
+  get 'maps' => 'maps#index'
 
  
   # The priority is based upon order of creation:

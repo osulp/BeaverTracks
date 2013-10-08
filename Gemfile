@@ -26,6 +26,8 @@ gem 'rails_admin'
 
 gem 'flickraw-cached'
 
+gem 'gmaps4rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

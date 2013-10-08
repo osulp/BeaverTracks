@@ -1,0 +1,29 @@
+<h1><%= @title %></h1>
+
+<% cache :action => 'index', :part => 'map' do %>
+  <div id ="container">
+    <div id ="wrapper">
+      <%#= gmaps4rails(@json) %>
+
+      <!--
+                 "center_latitude" => 44.5650618928,
+                                      "center_longitude" => -123.27603917,
+                                      -->
+
+
+      <%= gmaps("map_options" => {"container_id" => "map_container", 
+                "center_latitude" => 44.5650618928,
+                "center_longitude" => -123.27603917,
+                "zoom" => 16,          
+                },
+                "markers" =>  {"data" => @json }
+               )
+       %> 
+
+       <!--
+       <p>json = <%#= @json %></p>
+       -->
+
+    </div>
+  </div>
+<% end %>
