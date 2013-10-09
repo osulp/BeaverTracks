@@ -16,7 +16,18 @@ Beavertracks::Application.routes.draw do
   get 'beavertracks/about', as: 'about_beavertracks'
   get 'beavertracks/instructions', as: 'instructions_beavertracks'
 
-  get 'maps' => 'maps#index'
+  #get 'maps' => 'maps#index'
+
+  resources :maps do
+    member do 
+      get 'directions'
+      get 'locations'
+      get 'tour'
+    end
+  end
+
+  # resources :patrons
+
 
  
   # The priority is based upon order of creation:

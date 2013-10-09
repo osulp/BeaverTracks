@@ -26,6 +26,8 @@ gem 'rails_admin'
 
 gem 'flickraw-cached'
 
+gem "geocoder", "~> 1.1.8"
+
 gem 'gmaps4rails'
 
 # To use ActiveModel has_secure_password
