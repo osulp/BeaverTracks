@@ -1,0 +1,19 @@
+<h1><%= @title %></h1>
+
+<% cache  :action => 'show', :part => 'content' do %>
+
+<div id="container">
+<div id="detail">
+
+  <p><%= @photo.title %></p>
+
+  <span id="image"><%= link_to image_tag(FlickRaw.url(@photo), :class => 'flickr_photo_large', :title => @building.name + ' - ' + @photo.title), building_path(@building.id) %></span>
+
+  <p><br style="clear: both"><%= @photo.description %></p>
+
+  <p>Return to <%= link_to( @building.name, building_path(@building.id)) %> page</p>
+
+</div>
+</div>
+
+<%end%>

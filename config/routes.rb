@@ -11,6 +11,7 @@ Beavertracks::Application.routes.draw do
   resources :buildings
   get 'buildings/:id' => 'buildings#show'
   get 'buildings/:id/image' => 'buildings#image'
+  get 'buildings/:id/:flickr_photo_id' => 'buildings#flickr_view'
 
   get 'beavertracks' => 'beavertracks#index'
   get 'beavertracks/about', as: 'about_beavertracks'

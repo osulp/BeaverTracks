@@ -30,6 +30,8 @@ gem "geocoder", "~> 1.1.8"
 
 gem 'gmaps4rails'
 
+# gem 'cells'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
