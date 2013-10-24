@@ -13,12 +13,11 @@
 
   <div id="flickr_nav">
 
-    <%#= render_cell :buildings, :flickr %>
     <%= render :partial => '/buildings/flickr_list', :locals => { :building => @building, :photos => @photos } %>
 
   </div>
 
-  <p>Flickr Images (<%= @building.flickr_tag %>) </p>
+  <p>Flickr Images (<%= link_to @building.flickr_tag, 'http://www.flickr.com/photos/osuarchives/tags/' + @building.flickr_tag.downcase.tr("_", "") %>) </p>
 
 </div>
 </div>
