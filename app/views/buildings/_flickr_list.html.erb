@@ -1,18 +1,14 @@
+<% begin %>
 <ol>
   <% @photos.each do |p| %>
+
   <% info = flickr.photos.getInfo(:photo_id => p.id) %>
     <li>
-
-      <%= link_to(image_tag(FlickRaw.url_s(info), :class => 'flickr_photo', :title => p.title, :border => 0) + p.title,
-          {:url =>{:controller => :buildings,  :action => 'image', :url => FlickRaw.url_s(info), :og_url => FlickRaw.url_o(info), :name =>p.title}, 
-          :update => "detail", :complete => 'Element.scrollTo("top")'},
-          :href => @building.id.to_s + '/' + p.id )%>
-
-      <%#= link_to_remote( image_tag(FlickRaw.url_s(info), :class => 'flickr_photo', :title => p.title, :border => 0) + "<span class='image_span'>" + p.title + "</span>",
-          {:url =>{:controller => :buildings,  :action => 'image', :description => p.description, :url => p.url(:square), :og_url => p.url(:original), :name =>p.title}, 
-          :update => "detail", :complete => 'Element.scrollTo("top")'},
-          :href => '#top' )%>
-
+      <%= link_to image_tag(FlickRaw.url_s(info), :class => 'flickr_photo', :title => @building.name + ' - ' + p.title, :border => 0) + p.title, @building.id.to_s + '/' + p.id %>
     </li>
   <% end %>
 </ol>
+
+<% rescue Exception %>
+  <p>Images are currently unavailable.</p>
+<% end %>
