@@ -17,8 +17,6 @@ Beavertracks::Application.routes.draw do
   get 'beavertracks/about', as: 'about_beavertracks'
   get 'beavertracks/instructions', as: 'instructions_beavertracks'
 
-  #get 'maps' => 'maps#index'
-
   resources :maps do
     member do 
       get 'directions'
@@ -27,7 +25,7 @@ Beavertracks::Application.routes.draw do
     end
   end
 
-  # resources :patrons
+  resources :patrons
 
 
  
