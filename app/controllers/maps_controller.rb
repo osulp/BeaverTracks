@@ -24,11 +24,11 @@ class MapsController < ApplicationController
 
       if @building.id === building.id
         marker.picture({
-          "picture" => ActionController::Base.helpers.asset_path('home/image.png'),
+          "picture" => ActionController::Base.helpers.asset_path('arrow.png'),
           "width" => 32, 
           "height" => 37,
           "marker_anchor" => [5, 10],
-          "shadow_picture" => ActionController::Base.helpers.asset_path('location/shadow.png'),
+          "shadow_picture" => ActionController::Base.helpers.asset_path('shadow.png'),
           "shadow_width" => 51,
           "shadow_height" => 37,
           "shadow_anchor" => [5, 10]
