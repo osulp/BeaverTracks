@@ -1,21 +1,389 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  name: MyString
-  description: MyText
-  flickr_thumb_url: MyString
-  flickr_orig_url: MyString
-  flickr_tag: MyString
-  search_tags: MyString
-  lat: 1.5
-  lng: 1.5
-
-two:
-  name: MyString
-  description: MyText
-  flickr_thumb_url: MyString
-  flickr_orig_url: MyString
-  flickr_tag: MyString
-  search_tags: MyString
-  lat: 1.5
-  lng: 1.5
+---
+buildings_001:
+  id: 1
+  name: Benton Hall
+  description: ! "The first cornerstone was laid for the new Administration Building
+    on Corvallis’ “College Hill” in 1887 - and our university was born. Known as Benton
+    Hall since 1947, the first building on campus was completed in 1888, with the
+    college moved in by the end of 1889.\r\n\r\nBenton Hall has served the university
+    in many capacities. It originally housed all college’s classrooms, administrative
+    offices, and lab space. Though you would have found the library there until 1918
+    and the President’s Office until 1923, today the melodies drifting from open windows
+    are evidence of the resident department since 1916 – the Music Department!"
+  flickr_thumb_url: http://farm5.static.flickr.com/4051/4362164297_2756a339d6_s.jpg
+  flickr_orig_url: http://farm5.static.flickr.com/4051/4362164297_f78641139b_o.jpg
+  flickr_tag: Benton_Hall_Tour
+  search_tags: Administration
+  lat: 44.5662155151367
+  lng: -123.274284362793
+  created_at: '2013-09-12 18:58:22.505608'
+  updated_at: '2013-09-16 22:47:00.466991'
+buildings_002:
+  id: 2
+  name: Kearney Hall
+  description: ! "Built on the site of the first Mechanical Hall, destroyed by fire
+    in 1898, the building now called Kearney Hall opened in 1900. Originally a two-story
+    building designed by Portland architect Edgar Lazarus, the third floor was added
+    in 1920 and renamed Apperson Hall. It was renovated, expanded, and renamed Kearney
+    Hall in 2009.\r\n\r\nThough Kearney Hall has been used by the College of Engineering
+    its entire life, it also housed the printing department for many years. "
+  flickr_thumb_url: http://farm5.static.flickr.com/4052/4445429217_7617c48e08_s.jpg
+  flickr_orig_url: http://farm5.static.flickr.com/4052/4445429217_27809a8d22_o.jpg
+  flickr_tag: Kearney_Hall_Tour
+  search_tags: Mechanical Apperson
+  lat: 44.5670700073242
+  lng: -123.273193359375
+  created_at: '2013-09-12 19:00:57.623690'
+  updated_at: '2013-09-16 22:46:33.806400'
+buildings_003:
+  id: 3
+  name: Benton Annex
+  description: ! 'Today Benton Annex houses the Women’s Center, but since opening
+    in 1892 this small building has hosted the Agricultural Experiment Station, a
+    chemistry lab, the Mining Department, the OAC Co-op bookstore, Student Health
+    Services, and the Paleontology Department. Not only has it had many occupants,
+    it has also had many names! You’ll find references to this building as the Station
+    House, chem shack, Paleontology lab, and starting in 1972, the Women’s Center. '
+  flickr_thumb_url: http://farm5.static.flickr.com/4024/4445429429_e3d5a2396b_s.jpg
+  flickr_orig_url: http://farm5.static.flickr.com/4024/4445429429_700cd48e98_o.jpg
+  flickr_tag: Benton_Annex_Tour
+  search_tags: Station House, chem shack, Paleontology lab
+  lat: 44.5658569335938
+  lng: -123.274726867676
+  created_at: '2013-09-12 19:02:44.470215'
+  updated_at: '2013-09-12 19:02:44.470215'
+buildings_004:
+  id: 4
+  name: Education Hall
+  description: Following the tradition of morphing building names, Education Hall
+    debuted as Agriculture Hall (1902), changed to Science Hall within the first decade,
+    earned the nickname “Chem Shack” early on, and settled on its present moniker
+    in February of 1940. Over the past century, many subjects have been taught under
+    Education Hall’s gabled roof, including agriculture, science, pharmacy, forestry,
+    psychology, and since 1940, education.
+  flickr_thumb_url: http://farm3.static.flickr.com/2722/4445429311_6ab25258cb_s.jpg
+  flickr_orig_url: http://farm3.static.flickr.com/2722/4445429311_482f14832d_o.jpg
+  flickr_tag: Education_Hall_Tour
+  search_tags: Chemistry Laboratory Linus Pauling
+  lat: 44.5651702880859
+  lng: -123.274124145508
+  created_at: '2013-09-13 21:55:02.534804'
+  updated_at: '2013-09-16 22:38:28.756903'
+buildings_005:
+  id: 5
+  name: Gladys Valley Gymnastics Center
+  description: ! "This unique building, with its modest west side and noteworthy east
+    side, opened in 1898 as the college gymnasium and armory. Like many building on
+    campus, the Gymnastics Center has had many occupants and many names, including
+    the armory, gymnasium, and examination hall. It was the Mitchell Playhouse - before
+    being converted back into a gymnasium in the early 1990s.\r\n\r\nThe building
+    was condemned in 1990, but it was given a second chance in 1992 thanks to a donation
+    for renovation from OSU alumni Wayne & Gladys Valley. "
+  flickr_thumb_url: http://farm4.static.flickr.com/3149/2938493086_46f604cbaf_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3149/2938493086_e464c2722e_o.jpg
+  flickr_tag: Valley_Gymnastics_Center_Tour
+  search_tags: Armory Mitchell Playhouse College
+  lat: 44.56494140625
+  lng: -123.275230407715
+  created_at: '2013-09-13 21:56:47.565850'
+  updated_at: '2013-09-16 22:48:10.672724'
+buildings_006:
+  id: 6
+  name: McAlexander Fieldhouse & Heating Plant
+  description: ! 'Known for its barrel shape and vast interior, McAlexander Fieldhouse
+    opened in 1910 as “the Armory.” It was the hub for the college’s military activities,
+    and aside from cosmetic changes to the exterior, its structure and purpose haven’t
+    changed since construction. Today it hosts both the Army and Air Force ROTC offices,
+    as well as Recreational Sports activities. The back portion, the original college
+    heating plant, is now the rifle range. '
+  flickr_thumb_url: http://farm3.static.flickr.com/2755/4446202398_410d780275_s.jpg
+  flickr_orig_url: http://farm3.static.flickr.com/2755/4446202398_b655f9bedd_o.jpg
+  flickr_tag: McAlexander_Fieldhouse_Heating_Plant_Tour
+  search_tags: Heating Plant
+  lat: 44.5636100769043
+  lng: -123.275382995605
+  created_at: '2013-09-13 21:58:30.766517'
+  updated_at: '2013-09-13 21:58:30.766517'
+buildings_007:
+  id: 7
+  name: Waldo Hall
+  description: ! "Named in honor of Clara H. Waldo, the first woman to serve on any
+    Board of Regents of a higher education institution in Oregon, Waldo Hall is now
+    quite famous for its tales of ghostly hauntings and imposing facade. When it was
+    completed in 1907, it was a “modern facility,” with 115 rooms that could accommodate
+    up to 300 women. Not only was it a living space for students and female faculty,
+    the building also included Domestic Science labs and classrooms.\r\n\r\nWaldo
+    was used as a dorm until 1965, until its poor condition called for a major renovation;
+    at that time, it was completely remodeled into a space for university offices. "
+  flickr_thumb_url: http://farm3.static.flickr.com/2703/4446202850_cfef36f003_s.jpg
+  flickr_orig_url: http://farm3.static.flickr.com/2703/4446202850_7e22a0cb96_o.jpg
+  flickr_tag: Waldo_Hall_Tour
+  search_tags: Womens Dorm
+  lat: 44.5641059875488
+  lng: -123.277206420898
+  created_at: '2013-09-13 21:59:55.474396'
+  updated_at: '2013-09-16 22:48:29.158956'
+buildings_008:
+  id: 8
+  name: Goss Stadium at Coleman Field & Dixon Recreation Center
+  description: ! "The OSU baseball team has laced up on the same site since 1907,
+    boasting the oldest baseball diamond among PAC-10 schools and one of the oldest
+    for colleges and universities in the country. It wasn’t until 1998 that the “baseball
+    field” was renamed Goss Stadium at Coleman Field – and when it was renamed it
+    was also significantly remodeled!\r\n\r\nLook right next door and you’ll now see
+    Dixon Recreation Center; however, from 1913 until 1953 this was the site informally
+    known as \"The College Field,\" where the school played football. It was officially
+    name Bell Field in 1921 to honor John Richard Newton Bell. "
+  flickr_thumb_url: http://farm4.static.flickr.com/3143/2937641763_4ffc7a4f2e_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3143/2937641763_7d82927f1e_o.jpg
+  flickr_tag: Goss_Dixon_Tour
+  search_tags: Bell Field Reser Stadium
+  lat: 44.5632972717285
+  lng: -123.277648925781
+  created_at: '2013-09-13 22:01:22.581967'
+  updated_at: '2013-09-13 22:01:22.581967'
+buildings_009:
+  id: 9
+  name: Langton Hall
+  description: ! "The Men’s Gymnasium, built in 1915 and named Langton Hall in the
+    early 1970s, was designed by John Bennes. In addition to its use as a gym, the
+    building was also used for commencement activities until Gill Coliseum opened
+    in 1950. Today it houses the Intramural Sports offices, the department of exercise
+    and sport science, and is used for physical education classes.\r\n\r\nDid you
+    know? The bronze sculpture is called “The Runner “ (1920) – it was one of the
+    first pieces of artwork on campus."
+  flickr_thumb_url: http://farm5.static.flickr.com/4057/4446202440_f9aefac8c9_s.jpg
+  flickr_orig_url: http://farm5.static.flickr.com/4057/4446202440_125797258e_o.jpg
+  flickr_tag: Langton_Hall_Tour
+  search_tags: Men's Gymnasium
+  lat: 44.5641250610352
+  lng: -123.278312683105
+  created_at: '2013-09-13 22:03:17.645241'
+  updated_at: '2013-09-13 22:03:17.645241'
+buildings_010:
+  id: 10
+  name: Memorial Union
+  description: ! "When it was dedicated on June 1, 1929 the Memorial Union could boast
+    being the first student union in the state and that its funding came from alumni
+    and student contributions. Construction on the grand building was completed in
+    1928 and the MU quickly became the center of campus life.\r\n\r\nDesigned by Portland-based
+    architect and 1907 OAC graduate Lee Thomas, the MU stands as both a student center
+    and memorial to honor the service people who died in WWI."
+  flickr_thumb_url: http://farm3.static.flickr.com/2763/4445428941_2aeaef3194_s.jpg
+  flickr_orig_url: http://farm3.static.flickr.com/2763/4445428941_69cab32e73_o.jpg
+  flickr_tag: Memorial_Union_Tour
+  search_tags: Ballroom
+  lat: 44.5649528503418
+  lng: -123.279052734375
+  created_at: '2013-09-13 22:06:00.255148'
+  updated_at: '2013-09-13 22:06:00.255148'
+buildings_011:
+  id: 11
+  name: Moreland Hall
+  description: ! "Though the English and Psychology departments are now in Moreland
+    Hall, the building opened in 1917 as the \"Forestry Building.\" The College of
+    Forestry stayed until Peavy Hall opened in the early 1970s.\r\n\r\nWhen the Forestry
+    folks moved out and the English and Psychology moved in, the building needed a
+    new name! In 1973, the building was renamed in honor of W. W. Moreland, a faculty
+    member in the 19th century and clerk of the State Legislature. "
+  flickr_thumb_url: http://farm4.static.flickr.com/3141/2937641823_442a609671_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3141/2937641823_636cab9f28_o.jpg
+  flickr_tag: Moreland_Hall_Tour
+  search_tags: Forestry
+  lat: 44.5642700195312
+  lng: -123.279388427734
+  created_at: '2013-09-13 22:07:47.408986'
+  updated_at: '2013-09-13 22:07:47.408986'
+buildings_012:
+  id: 12
+  name: Weatherford Hall
+  description: ! "From the outside, this John Bennes building is a stunner! Built
+    in only six months, Weatherford Hall opened in 1928 as the Men’s Dormitory, housing
+    up to 344 men.\r\n\r\nThough it was closed in 1994 for a complete renovation,
+    it reopened in 2004 as the home of the Austin Entrepreneurship Program, a unique
+    living & learning environment. "
+  flickr_thumb_url: http://farm5.static.flickr.com/4061/4446202802_04b7656b49_s.jpg
+  flickr_orig_url: http://farm5.static.flickr.com/4061/4446202802_c98d7971fc_o.jpg
+  flickr_tag: Weatherford_Hall_Tour
+  search_tags: Men's Dormitory
+  lat: 44.5640335083008
+  lng: -123.280639648438
+  created_at: '2013-09-13 22:09:20.816786'
+  updated_at: '2013-09-13 22:09:20.816786'
+buildings_013:
+  id: 13
+  name: Fairbanks Hall
+  description: ! "Built in 1892 as a dormitory for men, Fairbanks Hall was originally
+    known as Cauthorn Hall, named for state Senator and OAC Regent Thomas Cauthorn.
+    When first opened, the dorm could accommodate more than 100 students, with \"amenities\"
+    including water, steam heat, electric lights, dining room, and a kitchen.\r\n\r\nKidder
+    Hall was converted into a classroom building in the early 1930s, and then renamed
+    Fairbanks Hall in 1964 for J. Leo Fairbanks, former head of the Art Department. "
+  flickr_thumb_url: http://farm3.static.flickr.com/2733/4463323144_669fe234fe_s.jpg
+  flickr_orig_url: http://farm3.static.flickr.com/2733/4463323144_7b8d9efff3_o.jpg
+  flickr_tag: Fairbanks_Hall_Tour
+  search_tags: Kidder Hall Cauthorn Hall
+  lat: 44.5650672912598
+  lng: -123.280410766602
+  created_at: '2013-09-13 22:13:57.231592'
+  updated_at: '2013-09-13 22:13:57.231592'
+buildings_014:
+  id: 14
+  name: Women’s Building
+  description: John Bennes designed many gorgeous buildings for OSU, but this one,
+    constructed in 1926 as the women’s gymnasium and totaling 87,486 sq feet in its
+    two-stories and full basement, is considered one of his grandest structures on
+    campus. It features a 30' x 70' swimming pool, lounge and assembly room with a
+    large fireplace, dance studio, library, and dining room in original condition.
+  flickr_thumb_url: http://farm5.static.flickr.com/4034/4445429371_a4e72cda34_s.jpg
+  flickr_orig_url: http://farm5.static.flickr.com/4034/4445429371_9574618dde_o.jpg
+  flickr_tag: Women's_Building_Tour
+  search_tags: Pool
+  lat: 44.5657730102539
+  lng: -123.280540466309
+  created_at: '2013-09-13 22:16:11.240515'
+  updated_at: '2013-09-13 22:16:11.240515'
+buildings_015:
+  id: 15
+  name: Milam Hall
+  description: ! "This is one of architect John Bennes’ earliest designs for OSU's
+    campus. Its core portion was constructed in 1913 for the School of Domestic Science,
+    which later became known the School of Home Economics, and significant additions
+    to the building were added in 1920 and 1952.\r\n\r\nThe Home Economics Building
+    was rededicated as Milam Hall in 1976 to honor the contributions of Ava B. Milam,
+    who was a leading feminist of the era and Dean of the School of Home Economics
+    from 1917 to 1950. "
+  flickr_thumb_url: http://farm4.static.flickr.com/3646/3523533586_754e2b904e_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3646/3523533586_c263b8be43_o.jpg
+  flickr_tag: Milam_Hall_Tour
+  search_tags: Home Economics
+  lat: 44.5664901733398
+  lng: -123.278961181641
+  created_at: '2013-09-13 22:18:08.582326'
+  updated_at: '2013-09-13 22:18:08.582326'
+buildings_016:
+  id: 16
+  name: Strand Agriculture Hall
+  description: ! "Strand Agricultural Hall is a sprawling building sitting between
+    the two campus quads. This Italian Renaissance style building is actually comprised
+    of three buildings – totaling 115,991 square feet! The wings on the north and
+    south sides are each three-stories, while the central building, designed by Portland
+    architect John Bennes, is four-stories with a fifth-floor penthouse.\r\n\r\nIt
+    was named for August L. Strand in 1984, OSU's president from 1942 to 1961. "
+  flickr_thumb_url: http://farm4.static.flickr.com/3178/2938495648_2abb15d46a_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3178/2938495648_41ac72141e_o.jpg
+  flickr_tag: Strand_Agricultural_Hall_Tour
+  search_tags: Agronomy
+  lat: 44.5656585693359
+  lng: -123.277229309082
+  created_at: '2013-09-13 22:20:06.753042'
+  updated_at: '2013-09-13 22:20:06.753042'
+buildings_017:
+  id: 17
+  name: Gilkey Hall
+  description: ! "Anyone gazing at Gilkey Hall today and pondering its long history
+    must start in 1889 – with an entirely different building. Alpha Hall originally
+    sat on this plot until it was moved in 1911, literally clearing the way for a
+    new building to house offices for Dairy Husbandry, as well as butter and cheese
+    labs.\r\n\r\nThe College of Liberal Arts has occupied the space since the early
+    1950s, and the building was renamed in 2001 for Gordon Gilkey, who was chair of
+    the Art Department, Dean of Liberal Arts, and an internationally recognized art
+    scholar. "
+  flickr_thumb_url: http://farm4.static.flickr.com/3232/2937643575_cd7309ef0a_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3232/2937643575_cd7309ef0a_b.jpg
+  flickr_tag: gilkeyhalltour
+  search_tags: Alpha Hall
+  lat: 44.5664939880371
+  lng: -123.277221679688
+  created_at: '2013-09-13 22:21:47.897433'
+  updated_at: '2013-09-16 22:50:59.070450'
+buildings_018:
+  id: 18
+  name: Bexell Hall
+  description: ! "When John Andrew Bexell organized the School of Commerce in 1908,
+    there were three faculty members and 105 students. Fourteen years later, Dean
+    Bexell’s vision for a building suitable for business administration was realized
+    with the opening of Commerce Hall (now Bexell Hall).\r\n\r\nThough we now refer
+    to it as the College of Business, business has been studied in Bexell Hall since
+    the building was completed – though there was a time between 1923 and 1972 when
+    it also housed the president’s offices."
+  flickr_thumb_url: http://farm4.static.flickr.com/3398/3522692721_ac63ace7ba_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3398/3522692721_936cd2e93c_o.jpg
+  flickr_tag: Bexell_Hall_Tour
+  search_tags: Commerce
+  lat: 44.5671081542969
+  lng: -123.277328491211
+  created_at: '2013-09-13 22:23:59.643125'
+  updated_at: '2013-09-13 22:23:59.643125'
+buildings_019:
+  id: 19
+  name: Shepard Hall
+  description: ! "When Shepard Hall opened in 1909, it was also a space for the Y.M.
+    and Y.W.C.A, as well as a variety of other student organizations. Nonetheless,
+    since its original function was to support religious activities the school couldn't
+    fund construction.\r\n\r\nThe building has also been used for military-related
+    housing, a hospital, and a women’s dorm. The university didn’t purchase Shepard
+    until 1940 when the Speech and Dramatic Department moved in, but it was used for
+    Vocational Education classes as early as 1927. "
+  flickr_thumb_url: http://farm4.static.flickr.com/3153/2937643759_920e79905c_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3153/2937643759_85e677e11d_o.jpg
+  flickr_tag: Shepard_Hall_Tour
+  search_tags: Y.M.C.A.
+  lat: 44.5671653747559
+  lng: -123.276000976562
+  created_at: '2013-09-13 22:44:09.133701'
+  updated_at: '2013-09-16 22:51:22.814175'
+buildings_020:
+  id: 20
+  name: Batcheller Hall
+  description: Batcheller Hall, originally called the Mines Building, has stayed true
+    to Portland architect John Bennes’ original plan, remaining nearly exactly how
+    it was when it opened. While it shared space with a variety of other departments
+    in the early years, the School of Mines reclaimed its space in 1919. The building
+    has been used for engineering purposes since then and currently houses the College
+    of Engineering.
+  flickr_thumb_url: http://farm4.static.flickr.com/3193/2939145326_3460625822_s.jpg
+  flickr_orig_url: http://farm4.static.flickr.com/3193/2939145326_00bfaa6497_o.jpg
+  flickr_tag: Batcheller_Hall_Tour
+  search_tags: Mines
+  lat: 44.5670394897461
+  lng: -123.275230407715
+  created_at: '2013-09-13 22:46:05.915714'
+  updated_at: '2013-09-13 22:46:05.915714'
+buildings_021:
+  id: 21
+  name: Kidder Hall
+  description: ! "When space in Benton Hall was inadequate for the library collection,
+    administrators looked to John Bennes to design a new building. Originally named
+    “The Library” when it opened in 1918, the space quickly filled with books, offices,
+    and classrooms. It expanded again in 1940 with the addition of the west wing,
+    and again in 1954 with the in-filling the reading rooms with an additional floor.
+    The space still wasn’t enough, and in 1962 the college began construction on a
+    new building.\r\n\r\nWhen the new library building opened in 1964, the old library
+    building was renamed Kidder Hall in after Ida Kidder, the college’s first professional
+    librarian."
+  flickr_thumb_url: http://farm3.static.flickr.com/2781/4445429117_a1c5084b4a_s.jpg
+  flickr_orig_url: http://farm3.static.flickr.com/2781/4445429117_db271e0446_o.jpg
+  flickr_tag: Kidder_Hall_Tour
+  search_tags: Library
+  lat: 44.5665130615234
+  lng: -123.27613067627
+  created_at: '2013-09-13 22:48:10.946007'
+  updated_at: '2013-09-16 22:51:56.322503'
+buildings_022:
+  id: 22
+  name: Pharmacy Building
+  description: ! "The Pharmacy building opened in 1924 and has seen little change
+    since then. Demand for space led to an addition in 1966 and at one time the 2nd
+    floor included a model drug store, which was described in a pharmacy trade magazine
+    of the time as providing “a laboratory for instruction in store arrangement, showcase
+    and window decorating and practical salesmanship of drugs and druggists’ sundries.”\r\n\r\nIt
+    has been used exclusively by the College of Pharmacy. "
+  flickr_thumb_url: http://farm3.static.flickr.com/2769/4445432821_fe1c0b432b_s.jpg
+  flickr_orig_url: http://farm3.static.flickr.com/2701/4462543521_346609e1ab_o.jpg
+  flickr_tag: Pharmacy_Building_Tour
+  search_tags: Pharmacy
+  lat: 44.5653190612793
+  lng: -123.27481842041
+  created_at: '2013-09-13 22:51:12.569267'
+  updated_at: '2013-09-16 22:52:08.316827'
