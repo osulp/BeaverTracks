@@ -11,8 +11,6 @@ class BuildingsController < ApplicationController
 
     @title = @building.name
 
-    require 'flickraw'
-
 #    FlickRaw.api_key = ENV["BEAVERTRACKS_FLICKR_API_KEY"]
 #    FlickRaw.shared_secret = ENV["BEAVERTRACKS_FLICKR_SECRET"]
 
@@ -25,8 +23,6 @@ class BuildingsController < ApplicationController
   def flickr_view
     @building = Buildings.find(params[:id])
     @title = @building.name
-
-    require 'flickraw'
 
     @flickr_photo_id = params[:flickr_photo_id]
     # TEST/SECURE - retrieve Flickr info based on ID
