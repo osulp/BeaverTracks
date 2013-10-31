@@ -16,10 +16,8 @@ class MapsController < ApplicationController
     @building = Buildings.find(params[:id])
     @meta_keywords = @title = @meta_description = "Nearby " + @building.name
     
-    @nearby_buildings = Buildings.nearby(@building)
-
     # set building markers, different one for selected building
-    @json = @nearby_buildings.to_gmaps4rails do |building, marker|
+    @json = Buildings.nearby(@building).to_gmaps4rails do |building, marker|
       marker.json({ :id => building.id, :title => building.name })
 
       if @building.id === building.id
