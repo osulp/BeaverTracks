@@ -11,8 +11,8 @@ class BuildingsController < ApplicationController
 
     @title = @building.name
 
-#    FlickRaw.api_key = ENV["BEAVERTRACKS_FLICKR_API_KEY"]
-#    FlickRaw.shared_secret = ENV["BEAVERTRACKS_FLICKR_SECRET"]
+    FlickRaw.api_key = ENV["BEAVERTRACKS_FLICKR_API_KEY"]
+    FlickRaw.shared_secret = ENV["BEAVERTRACKS_FLICKR_SECRET"]
 
     @flickr_user_id = ENV["BEAVERTRACKS_FLICKR_USER_ID"]
 

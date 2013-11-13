@@ -1,3 +1,13 @@
 class Patron < ActiveRecord::Base
   attr_accessible :city, :country, :distance, :lat, :lng, :locality, :state, :street, :zip
+
+  geocoded_by :address, :latitude => :lat, :longitude => :lng
+
+  # GMaps4Rails - Configure to use lat and lng fields 
+  acts_as_gmappable :lat => "lat", :lng => "lng", :process_geocoding => false
+
+  def address
+      [street, city, state, zip, country].compact.join(', ')
+  end
+
 end

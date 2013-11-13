@@ -13,8 +13,9 @@ class MapsController < ApplicationController
 # Map of Nearby Locations
 
   def locations
+    @title = "Nearby " + @building.name
+
     @building = Buildings.find(params[:id])
-    @meta_keywords = @title = @meta_description = "Nearby " + @building.name
     
     # set building markers, different one for selected building
     @json = Buildings.nearby(@building).to_gmaps4rails do |building, marker|
@@ -34,6 +35,90 @@ class MapsController < ApplicationController
       end
     end
     
+  end
+
+
+# Walking Tour
+# Redirected here directly from Patron Controller, function redirect_patron()
+
+  def tour
+    @title = "Walking Tour"
+
+    @patron = Patron.find(params[:id])
+
+#    @map = GMap.new("map")
+
+    # Use the larger pan/zoom control but disable the map type selector
+#    @map.control_init()
+    # Center the map on building and focus in fairly
+    # closely
+#    @map.center_zoom_init([@patron.lat,@patron.lng],17)
+
+#    @buildings = Buildings.nearby(Patron.find(params[:id]))  # the 4 closest 
+
+
+
+    # set building markers, different one for selected building
+    @json = Buildings.nearby(@patron).to_gmaps4rails do |building, marker|
+      marker.json({ :id => building.id, :title => building.name })
+
+#      if @patron.id === building.id
+#        marker.picture({
+#          "picture" => ActionController::Base.helpers.asset_path('walking.png'),
+#          "width" => 32, 
+#          "height" => 37,
+#          "marker_anchor" => [5, 10],
+#          "shadow_picture" => ActionController::Base.helpers.asset_path('shadow.png'),
+#          "shadow_width" => 51,
+#          "shadow_height" => 37,
+#          "shadow_anchor" => [5, 10]
+#        })
+#      end
+    end
+
+
+
+    #create icon
+#    @map.icon_global_init(GIcon.new(:image => "/images/walking/image.png",
+#      :shadow => "/images/walking/shadow.png",
+#      :iconSize => GSize.new(32,37),
+#      :shadow_size => GSize.new(51,37),
+#      :icon_anchor => GPoint.new(16,37),
+#      :transparent => "/images/walking/transparent.png",
+#      :info_window_anchor => GPoint.new(16,0)),
+#      "patron_icon")
+#       patron_icon = Variable.new("patron_icon")
+
+       #build direction info
+#       info = direction_info(@patron.id)
+
+       #create the marker with lat/long and info
+#       mark = GMarker.new([@patron.lat,@patron.lng], 
+#       :icon => patron_icon,
+#       :title => "My Location",
+#       :info_window => "#{info}")
+
+    #add patron marker
+#    @map.overlay_init(mark)
+
+    #build buildings markers
+#    location_icon = building_marker(@map)
+#    @buildings.each do |building|
+#      loc = building.lat.to_s+','+building.lng.to_s
+#      info = building_direction_info(@patron.id,loc)
+#      url = url_for(building)
+#      mark =  building.create_marker(url,location_icon, info)
+#      @map.overlay_init(mark)
+#    end  
+
+    @on_campus = session[:campus]
+
+    session[:campus] = nil
+
+#    respond_to do |format|
+#      format.html   # walking.html.erb
+#      format.xml  { render :xml => @map }
+#    end
   end
 
 end
