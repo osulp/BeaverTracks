@@ -10,36 +10,36 @@
 </div>
 
 <!--
-<div id="geo-mere-laal-fields" style="display:none;"> 
+<div id="geo-mere-laal-fields" style="display:none;">
 -->
-<div id="geo-mere-laal-fields" style="display:block;"> 
+Finding your location...
+<div id="geo-form" style="display:none;">
 
-<p>Enter you current latitude and longitude</p> 
+<p>Enter you current latitude and longitude</p>
 
 <%= form_for :patron, url: patrons_path do |f| %>
   <%= f.label :lat %>
   <%= f.text_field :lat, 'value' => @lat %>
   <br>
-  <%= f.label :lng %>    
-  <%= f.text_field :lng, 'value' => @lng %> 
+  <%= f.label :lng %>
+  <%= f.text_field :lng, 'value' => @lng %>
 
   <%= f.submit %>
-<% end %> 
+<% end %>
 
 </div>
 </div>
-
-<!--
 <script>
-  if(geo_position_js.init())
-  { 
-     document.getElementById("geo-mere-laal-wait").style.display = "block"; 
-     GeoMereLaal.onReceive = function(){
-	   document.forms["skip"].submit();
-     }
-  } else {
-  	  alert("The Walking Tour may not work on your device. This Location is a best guess.")
-      document.forms["skip"].submit();
+  $(document).ready(function() {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(populate_form)
+    } else {
+      $("#geo-form").show()
+    }
+  })
+  function populate_form(geolocation) {
+    $("#patron_lat").val(geolocation.coords.latitude)
+    $("#patron_lng").val(geolocation.coords.longitude)
+    $("form").submit()
   }
 </script>
--->
