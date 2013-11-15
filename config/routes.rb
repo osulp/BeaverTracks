@@ -19,11 +19,11 @@ Beavertracks::Application.routes.draw do
 
   resources :maps do
     member do
-      get 'directions'
       get 'locations'
     end
     collection do
       get 'tour'
+      get 'directions'
     end
   end
 

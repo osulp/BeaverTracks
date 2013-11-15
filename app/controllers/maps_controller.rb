@@ -48,13 +48,11 @@ class MapsController < ApplicationController
 
     @patron = Patron.from_coords(session)
 
-    # set markers, walking graphic for patron location
+    # set markers, walking icon for patron location
     @json = (Buildings.nearby(@patron) | [@patron]).to_gmaps4rails do |building, marker|
       if building.kind_of? Buildings
         marker.json({ :id => building.id, :title => building.name })
-
-          # TODO: change to different infowindow for tour
-        marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
+        marker.infowindow render_to_string(:partial => "maps/building_tour_infowindow", :locals => { :building => building })
       end
 
       if building.kind_of? Patron
@@ -70,36 +68,27 @@ class MapsController < ApplicationController
           "shadow_height" => 37,
           "shadow_anchor" => [5, 10]
         })
+
+        marker.infowindow render_to_string(:partial => "maps/patron_tour_infowindow", :locals => { :building => building })
       end
 
     end
 
-
-       #build direction info
-#       info = direction_info(@patron.id)
-
-       #create the marker with lat/long and info
-#       mark = GMarker.new([@patron.lat,@patron.lng],
-#       :icon => patron_icon,
-#       :title => "My Location",
-#       :info_window => "#{info}")
-
-    #add patron marker
-#    @map.overlay_init(mark)
-
-    #build buildings markers
-#    location_icon = building_marker(@map)
-#    @buildings.each do |building|
-#      loc = building.lat.to_s+','+building.lng.to_s
-#      info = building_direction_info(@patron.id,loc)
-#      url = url_for(building)
-#      mark =  building.create_marker(url,location_icon, info)
-#      @map.overlay_init(mark)
-#    end
-
     @on_campus = session[:campus]
 
     session[:campus] = nil
+
+  end
+
+
+
+  # Walking directions from patron location
+  def directions
+    @title = "Walking Directions"
+
+    @patron = Patron.from_coords(session)
+
+    @target_building = Buildings.find(params[:target_building_id])
 
   end
 

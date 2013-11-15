@@ -1,0 +1,8 @@
+<b><a href="/buildings/<%= building.id.to_s %>"><%= building.name %></a></b>
+<p><%= building.description.truncate(50, :separator => ' ') %>
+<br/><a href="/buildings/<%= building.id.to_s %>">more</a></p>
+
+<%= form_tag({controller: "maps", action: "directions"}, method: "get") do %>
+  <%= hidden_field_tag(:target_building_id, building.id) %>
+  <%= submit_tag("Get Directions To Here") %>
+<% end %>

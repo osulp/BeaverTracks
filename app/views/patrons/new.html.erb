@@ -1,18 +1,13 @@
 
 <div id ="container">
 
-<div id="geo-mere-laal-wait" style="display:none;" >
 <div id="content">
-  <!--
-	<h3>Loading... <%= image_tag "/images/spinner.gif", :id => "spinner", :alt => "Spinner"%> </h3>
-  -->
- </div>
+  <h3>Loading your location... <%= image_tag "/images/spinner.gif", :id => "spinner", :alt => "Spinner"%> </h3>
 </div>
 
 <!--
 <div id="geo-mere-laal-fields" style="display:none;">
 -->
-Finding your location...
 <div id="geo-form" style="display:none;">
 
 <p>Enter you current latitude and longitude</p>
@@ -29,6 +24,7 @@ Finding your location...
 
 </div>
 </div>
+
 <script>
   $(document).ready(function() {
     if(navigator.geolocation) {

@@ -1,0 +1,7 @@
+<b>Get Directions To:</b>
+
+<%= form_tag({controller: "maps", action: "directions"}, method: "get") do %>
+  <%= select_tag(:target_building_id, options_from_collection_for_select(Buildings.list, :id, :name)) %>
+  <br/>
+  <%= submit_tag("Get Directions") %>
+<% end %>

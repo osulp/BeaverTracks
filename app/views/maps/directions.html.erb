@@ -1,0 +1,31 @@
+<h1><%= @title %></h1>
+<%# cache @patron do %>
+  <div id ="container">
+    <div id ="wrapper">
+
+      <%= gmaps("map_options" => {"container_id" => "map_container",
+                "center_latitude" => @patron.lat,
+                "center_longitude" => @patron.lng,
+                "zoom" => 17,
+                },
+                "markers2" =>  {"data" => @json },
+
+                "direction" => {
+                    "data"    => { "from" => [@patron.lat, @patron.lng].join(', '), "to" => [@target_building.lat, @target_building.lng].join(', ')}, 
+                    "options" => { "travelMode" => "WALKING", "unitSystem" => "IMPERIAL", "display_panel" => true, "panel_id" => "directions"}
+                }
+
+               )
+       %>
+
+      <p>json = <%= @json %></p>
+      <p>patron = <%= @patron.lat %>, <%= @patron.lng %></p>
+      <p>buildings = <%= @buildings %></p>
+      <p>target building = <%= @target_building.name %>, <%= @target_building.lat %>, <%= @target_building.lng %> </p>
+
+
+      <div id="directions"></div>
+
+    </div>
+  </div>
+<%# end %>
