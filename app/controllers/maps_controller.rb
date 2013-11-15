@@ -5,6 +5,7 @@ class MapsController < ApplicationController
 
     @json = Buildings.all.to_gmaps4rails do |building, marker|
       marker.json({ :id => building.id, :title => building.name })
+      marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
     end
   end
 
@@ -13,13 +14,14 @@ class MapsController < ApplicationController
 # Map of Nearby Locations
 
   def locations
-    @title = "Nearby " + @building.name
-
     @building = Buildings.find(params[:id])
+
+    @title = "Nearby " + @building.name
     
     # set building markers, different one for selected building
     @json = Buildings.nearby(@building).to_gmaps4rails do |building, marker|
       marker.json({ :id => building.id, :title => building.name })
+      marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
 
       if @building.id === building.id
         marker.picture({
@@ -46,21 +48,13 @@ class MapsController < ApplicationController
 
     @patron = Patron.find(params[:id])
 
-#    @map = GMap.new("map")
-
-    # Use the larger pan/zoom control but disable the map type selector
-#    @map.control_init()
-    # Center the map on building and focus in fairly
-    # closely
-#    @map.center_zoom_init([@patron.lat,@patron.lng],17)
-
-#    @buildings = Buildings.nearby(Patron.find(params[:id]))  # the 4 closest 
-
-
 
     # set building markers, different one for selected building
     @json = Buildings.nearby(@patron).to_gmaps4rails do |building, marker|
       marker.json({ :id => building.id, :title => building.name })
+
+        # change to different infowindow for tour
+      marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
 
 #      if @patron.id === building.id
 #        marker.picture({
@@ -75,7 +69,6 @@ class MapsController < ApplicationController
 #        })
 #      end
     end
-
 
 
     #create icon
@@ -115,10 +108,6 @@ class MapsController < ApplicationController
 
     session[:campus] = nil
 
-#    respond_to do |format|
-#      format.html   # walking.html.erb
-#      format.xml  { render :xml => @map }
-#    end
   end
 
 end

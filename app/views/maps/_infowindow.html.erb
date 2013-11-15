@@ -1,0 +1,3 @@
+<b><a href="/buildings/<%= building.id.to_s %>"><%= building.name %></a></b>
+<p><%= building.description.truncate(50, :separator => ' ') %>
+<br/><a href="/buildings/<%= building.id.to_s %>">more</a></p>

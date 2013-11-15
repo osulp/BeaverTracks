@@ -14,12 +14,6 @@ class Buildings < ActiveRecord::Base
   end 
   
 
-  def gmaps4rails_infowindow
-    "<b><a href=\"/buildings/" + self.id.to_s + "\">#{self.name}</a></b>" + 
-    "<p>" + self.description.truncate(50, :separator => ' ') + 
-    "<br/><a href=\"/buildings/" + self.id.to_s + "\">more</a></p>"
-  end
-
   def gmaps4rails_marker_picture
   {
     "picture" => ActionController::Base.helpers.asset_path('home.png'),

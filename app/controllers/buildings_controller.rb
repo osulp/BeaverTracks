@@ -35,4 +35,6 @@ class BuildingsController < ApplicationController
 
     @title = @building.name + " - Large Image"
   end
+
+
 end
