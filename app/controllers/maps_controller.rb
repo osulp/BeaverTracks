@@ -48,41 +48,32 @@ class MapsController < ApplicationController
 
     @patron = Patron.from_coords(session)
 
-
-    # set building markers, different one for selected building
+    # set markers, walking graphic for patron location
     @json = (Buildings.nearby(@patron) | [@patron]).to_gmaps4rails do |building, marker|
       if building.kind_of? Buildings
         marker.json({ :id => building.id, :title => building.name })
 
-          # change to different infowindow for tour
+          # TODO: change to different infowindow for tour
         marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
       end
 
-#      if @patron.id === building.id
-#        marker.picture({
-#          "picture" => ActionController::Base.helpers.asset_path('walking.png'),
-#          "width" => 32,
-#          "height" => 37,
-#          "marker_anchor" => [5, 10],
-#          "shadow_picture" => ActionController::Base.helpers.asset_path('shadow.png'),
-#          "shadow_width" => 51,
-#          "shadow_height" => 37,
-#          "shadow_anchor" => [5, 10]
-#        })
-#      end
+      if building.kind_of? Patron
+        marker.json({ :id => building.id, :title => "You" })
+
+        marker.picture({
+          "picture" => ActionController::Base.helpers.asset_path('walking.png'),
+          "width" => 32,
+          "height" => 37,
+          "marker_anchor" => [5, 10],
+          "shadow_picture" => ActionController::Base.helpers.asset_path('shadow.png'),
+          "shadow_width" => 51,
+          "shadow_height" => 37,
+          "shadow_anchor" => [5, 10]
+        })
+      end
+
     end
 
-
-    #create icon
-#    @map.icon_global_init(GIcon.new(:image => "/images/walking/image.png",
-#      :shadow => "/images/walking/shadow.png",
-#      :iconSize => GSize.new(32,37),
-#      :shadow_size => GSize.new(51,37),
-#      :icon_anchor => GPoint.new(16,37),
-#      :transparent => "/images/walking/transparent.png",
-#      :info_window_anchor => GPoint.new(16,0)),
-#      "patron_icon")
-#       patron_icon = Variable.new("patron_icon")
 
        #build direction info
 #       info = direction_info(@patron.id)
