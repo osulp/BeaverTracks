@@ -17,7 +17,7 @@ class MapsController < ApplicationController
     @building = Buildings.find(params[:id])
 
     @title = "Nearby " + @building.name
-    
+
     # set building markers, different one for selected building
     @json = Buildings.nearby(@building).to_gmaps4rails do |building, marker|
       marker.json({ :id => building.id, :title => building.name })
@@ -26,7 +26,7 @@ class MapsController < ApplicationController
       if @building.id === building.id
         marker.picture({
           "picture" => ActionController::Base.helpers.asset_path('arrow.png'),
-          "width" => 32, 
+          "width" => 32,
           "height" => 37,
           "marker_anchor" => [5, 10],
           "shadow_picture" => ActionController::Base.helpers.asset_path('shadow.png'),
@@ -36,7 +36,7 @@ class MapsController < ApplicationController
         })
       end
     end
-    
+
   end
 
 
@@ -46,20 +46,22 @@ class MapsController < ApplicationController
   def tour
     @title = "Walking Tour"
 
-    @patron = Patron.find(params[:id])
+    @patron = Patron.from_coords(session)
 
 
     # set building markers, different one for selected building
-    @json = Buildings.nearby(@patron).to_gmaps4rails do |building, marker|
-      marker.json({ :id => building.id, :title => building.name })
+    @json = (Buildings.nearby(@patron) | [@patron]).to_gmaps4rails do |building, marker|
+      if building.kind_of? Buildings
+        marker.json({ :id => building.id, :title => building.name })
 
-        # change to different infowindow for tour
-      marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
+          # change to different infowindow for tour
+        marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
+      end
 
 #      if @patron.id === building.id
 #        marker.picture({
 #          "picture" => ActionController::Base.helpers.asset_path('walking.png'),
-#          "width" => 32, 
+#          "width" => 32,
 #          "height" => 37,
 #          "marker_anchor" => [5, 10],
 #          "shadow_picture" => ActionController::Base.helpers.asset_path('shadow.png'),
@@ -86,7 +88,7 @@ class MapsController < ApplicationController
 #       info = direction_info(@patron.id)
 
        #create the marker with lat/long and info
-#       mark = GMarker.new([@patron.lat,@patron.lng], 
+#       mark = GMarker.new([@patron.lat,@patron.lng],
 #       :icon => patron_icon,
 #       :title => "My Location",
 #       :info_window => "#{info}")
@@ -102,7 +104,7 @@ class MapsController < ApplicationController
 #      url = url_for(building)
 #      mark =  building.create_marker(url,location_icon, info)
 #      @map.overlay_init(mark)
-#    end  
+#    end
 
     @on_campus = session[:campus]
 

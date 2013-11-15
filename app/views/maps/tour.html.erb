@@ -1,17 +1,16 @@
 <h1><%= @title %></h1>
-
 <% cache @patron do %>
   <div id ="container">
     <div id ="wrapper">
 
-      <%= gmaps("map_options" => {"container_id" => "map_container", 
+      <%= gmaps("map_options" => {"container_id" => "map_container",
                 "center_latitude" => @patron.lat,
                 "center_longitude" => @patron.lng,
-                "zoom" => 16,          
+                "zoom" => 16,
                 },
                 "markers" =>  {"data" => @json}
                )
-       %> 
+       %>
 
        <!--
       <p>json = <%= @json %></p>

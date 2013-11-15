@@ -1,5 +1,5 @@
 class PatronsController < ApplicationController
-
+  before_filter :generate_patron
   def new
     @title = 'Retrieving Location'
 
@@ -13,36 +13,45 @@ class PatronsController < ApplicationController
 
   def create
     # render text: params[:patron].inspect
-    @patron = Patron.new(params[:patron])
+    #@patron = Patron.new(params[:patron])
 
-    @patron.save
+    #@patron.save
 
-    session[:patron] = @patron
-
-    redirect_patron(@patron.id)
+    #session[:patron] = @patron
+    session['lat'] = params[:patron][:lat]
+    session['lng'] = params[:patron][:lng]
+    @patron = Patron.from_coords(params[:patron])
+    redirect_patron(@patron)
   end
 
 
 
-  # param @patron 
+  # param @patron
   # checks if oncampus, and redirects to show/tour map
- 
-  def redirect_patron(id)
-    patron = Patron.find(id)
+
+  def redirect_patron(patron)
     buildings = Buildings.nearby(patron)
-     
+
     #see if on campus
     if buildings.count > 0
       session[:campus] = true
     else
       #set location to library
       session[:campus] = false
-      patron.lat = 44.5650618928
-      patron.lng = -123.27603917
-      patron.save
+      session[:lat] = 44.5650618928
+      session[:lng] = -123.27603917
+      patron = Patron.from_coords(session)
     end
 
-    redirect_to(tour_map_path(patron))
+    redirect_to(tour_maps_path)
+  end
+
+  private
+
+  def generate_patron
+    if session[:lat] && session[:lng]
+      @patron = Patron.from_coords(:lat => session[:lat], :lng => session[:lng])
+    end
   end
 
 end
