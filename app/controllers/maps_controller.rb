@@ -77,7 +77,6 @@ class MapsController < ApplicationController
     @on_campus = session[:campus]
 
     session[:campus] = nil
-
   end
 
 
