@@ -32,6 +32,17 @@ gem "geocoder", "~> 1.1.8"
 
 gem 'gmaps4rails'
 
+
+group :development do
+  gem 'rspec-rails', '~> 2.12.0'
+end
+
+
+group :test do
+  gem 'rspec-rails', '~> 2.12.0'
+end
+
+
 # gem 'cells'
 
 # To use ActiveModel has_secure_password
