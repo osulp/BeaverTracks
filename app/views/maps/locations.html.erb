@@ -1,6 +1,6 @@
 <h1><%= @title %></h1>
 
-<% cache :action => 'locations', :part => @building.id do %>
+<% cache @building do %>
   <div id ="container">
     <div id ="wrapper">
 
@@ -13,7 +13,9 @@
                )
        %> 
 
+<!--
        <p>json = <%#= @json %></p>
+-->
 
     </div>
   </div>

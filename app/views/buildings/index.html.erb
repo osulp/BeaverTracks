@@ -1,7 +1,7 @@
 <h1><%= @title %></h1>
 
 <div id="search_results">
-  <% cache  :action => 'index', :part =>'building_list' do %> 
+  <% cache @building do %> 
     <div id= 'nav'>
       <ol>
         <% @buildings.each do |building| %>
