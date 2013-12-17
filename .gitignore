@@ -24,6 +24,3 @@
 .idea/*
 .project
 ValleyFile
-
-# Ignore database.yml, don't want in repository
-/config/database.yml
