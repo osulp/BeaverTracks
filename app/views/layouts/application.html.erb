@@ -10,9 +10,7 @@
 </head>
 <body>
 
-<% cache 'header' do %>
-  <%= render :partial => '/beavertracks/header' unless @disable_header %>
-<% end %>
+<%= render :partial => '/beavertracks/header' unless @disable_header %>
 
 <% if notice %>
 <p class="notice"><%= notice %></p>
