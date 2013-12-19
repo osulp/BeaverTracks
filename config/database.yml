@@ -24,7 +24,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: <%= ENV['BEAVERTRACKS_ADAPTER'] || "mysql2" %>
+  encoding: utf8
+  reconnect: false
+  database: <%= "#{ENV['BEAVERTRACKS_DB_PREFIX']}_dev" %>
   pool: 5
-  timeout: 5000
+  username: <%= ENV['BEAVERTRACKS_DB_USERNAME'] %>
+  password: <%= ENV['BEAVERTRACKS_DB_PASSWORD'] %>
+  host: <%= ENV['BEAVERTRACKS_DB_HOST'] %>
