@@ -1,29 +1,31 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '~>4.0.0'
 
 gem 'sqlite3'
 gem 'mysql2'
 
+gem 'rails4_upgrade'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+# Replaces "gem 'sass-rails', '~>3.x.y'"
+gem 'sass-rails', '~>4.0.0'
+gem 'coffee-rails', '~>4.0.1'
+gem 'uglifier', '>=1.3.0'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+gem 'actionpack-action_caching', '~>1.1.1'
+gem 'actionpack-page_caching', '~>1.0.0'
+gem 'actionpack-xml_parser', '~>1.0.1'
+gem 'actionview-encoded_mail_to', '~>1.0.4'
+gem 'activerecord-session_store', '~>0.1.0'
+gem 'activeresource', '~>4.0.0'
+gem 'protected_attributes', '~>1.0.1'
+gem 'rails-observers', '~>0.1.1'
+gem 'rails-perftest', '~>0.0.2'
 
-  gem 'uglifier', '>= 1.0.3'
-end
 
 gem 'jquery-rails'
 
-gem 'rails_admin'
+gem "rails_admin", "~> 0.6.0"
 
 gem 'flickraw-cached'
 
@@ -32,23 +34,13 @@ gem "geocoder", "~> 1.1.8"
 gem 'gmaps4rails'
 
 
-group :development do
-  gem 'rspec-rails', '~> 2.12.0'
+group :development, :test do
+  gem 'rspec-rails', '>= 2.13.2'
 end
 
-
-group :test do
-  gem 'rspec-rails', '~> 2.12.0'
-end
-
-
-# gem 'cells'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
 
 # Use unicorn as the app server
 gem 'unicorn'
@@ -58,6 +50,5 @@ gem 'capistrano', '2.14.2'
 
 # To use debugger
 # gem 'debugger'
-
 
 gem "devise"
