@@ -1,5 +1,4 @@
 <h1><%= @title %></h1>
-<% cache @patron do %>
   <div id ="container">
     <div id ="wrapper">
 
@@ -11,13 +10,5 @@
                 "markers" =>  {"data" => @json}
                )
        %>
-
-       <!--
-      <p>json = <%= @json %></p>
-      <p>patron = <%= @patron.id %>, <%= @patron.lat %>, <%= @patron.lng %></p>
-      <p>buildings = <%= @buildings %></p>
-      -->
-
     </div>
   </div>
-<% end %>
