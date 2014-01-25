@@ -3,10 +3,20 @@ class MapsController < ApplicationController
   def index
     @title = "Map"
 
-    @json = Buildings.all.to_gmaps4rails do |building, marker|
-      marker.json({ :id => building.id, :title => building.name })
-      marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
+#    @buildings = User.all
+    @hash = Gmaps4rails.build_markers(Buildings.all) do |building, marker|
+      marker.lat building.lat
+      marker.lng building.lng
+#      marker.id building.id
+      marker.title building.name
     end
+
+
+
+#    @json = Buildings.all.to_gmaps4rails do |building, marker|
+#      marker.json({ :id => building.id, :title => building.name })
+#      marker.infowindow render_to_string(:partial => "maps/infowindow", :locals => { :building => building })
+#    end
   end
 
 

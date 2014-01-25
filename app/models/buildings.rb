@@ -6,7 +6,7 @@ class Buildings < ActiveRecord::Base
   geocoded_by :name, :latitude => :lat, :longitude => :lng 
 
   # GMaps4Rails - Configure to use lat and lng fields 
-  acts_as_gmappable :lat => "lat", :lng => "lng", :process_geocoding => false
+  # acts_as_gmappable :lat => "lat", :lng => "lng", :process_geocoding => false
 
   # Return 3 nearby buildings 
   def self.nearby(obj) 
