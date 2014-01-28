@@ -3,12 +3,31 @@
 <head>
   <title><% if @title %> <%= @title %> - <% end %> BeaverTracks</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry" %>
   <%= javascript_include_tag "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
   <%= render :partial => '/beavertracks/head'%>
+
+  <script type="text/javascript">
+
+  // this check is necessary to see if the page is fully loaded before executing
+  // http://stackoverflow.com/questions/5478450/google-map-error-a-is-null
+  $(document).ready(function () {
+
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(16);
+    });
+  });
+  </script>
+
 </head>
 <body>
 

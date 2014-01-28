@@ -2,7 +2,9 @@
   <div id ="container">
     <div id ="wrapper">
 
-      <%= gmaps("map_options" => {"container_id" => "map_container",
+      <div id="map" style='width: 800px; height: 400px; border: 1px solid red;'></div>
+
+      <%#= gmaps("map_options" => {"container_id" => "map_container",
                 "center_latitude" => @patron.lat,
                 "center_longitude" => @patron.lng,
                 "zoom" => 17,
