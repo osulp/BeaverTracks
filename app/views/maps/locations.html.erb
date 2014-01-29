@@ -1,19 +1,29 @@
 <h1><%= @title %></h1>
 
+<script type="text/javascript">
+
+  // this check is necessary to see if the page is fully loaded before executing
+  // http://stackoverflow.com/questions/5478450/google-map-error-a-is-null
+  $(document).ready(function () {
+
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(16);
+    });
+  });
+</script>
+
+
 <% cache do %>
   <div id ="container">
     <div id ="wrapper">
 
-      <div id="map" style='width: 800px; height: 400px; border: 1px solid red;'></div>
-
-      <%#= gmaps("map_options" => {"container_id" => "map_container", 
-                "center_latitude" => 44.5650618928,
-                "center_longitude" => -123.27603917,
-                "zoom" => 16,          
-                },
-                "markers" =>  {"data" => @json}
-               )
-       %> 
+      <div id="map" style='width: 800px; height: 400px;'></div>
 
 <!--
        <p>json = <%#= @json %></p>
