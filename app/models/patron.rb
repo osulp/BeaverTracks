@@ -4,7 +4,7 @@ class Patron < ActiveRecord::Base
   geocoded_by :address, :latitude => :lat, :longitude => :lng
 
   # GMaps4Rails - Configure to use lat and lng fields
-  acts_as_gmappable :lat => "lat", :lng => "lng", :process_geocoding => false
+  # acts_as_gmappable :lat => "lat", :lng => "lng", :process_geocoding => false
 
   def self.from_coords(opts={})
     new(:lat => opts[:lat], :lng => opts[:lng])
