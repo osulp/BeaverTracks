@@ -13,34 +13,55 @@
 
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(16);
     });
+
+
+// code below modified from https://developers.google.com/maps/documentation/javascript/examples/directions-panel
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+
+function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var mapOptions = {
+    zoom: 16,
+    center: new google.maps.LatLng(<%= @patron.lat %>, <%= @patron.lng %>)
+  };
+  var map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('directions'));
+
+  calcRoute();
+}
+
+function calcRoute() {
+  var start = new google.maps.LatLng(<%= @patron.lat %>, <%= @patron.lng %>);
+  var end = new google.maps.LatLng(<%= @target_building.lat %>, <%= @target_building.lng %>);
+
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.WALKING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
   });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+});
+
 </script>
+
 
 
   <div id ="container">
     <div id ="wrapper">
 
       <div id="map" style='width: 800px; height: 400px;'></div>
-
-      <%#= gmaps("map_options" => {"container_id" => "map_container",
-                "center_latitude" => @patron.lat,
-                "center_longitude" => @patron.lng,
-                "zoom" => 17,
-                },
-
-                "direction" => {
-                    "data"    => { "from" => [@patron.lat, @patron.lng].join(', '), "to" => [@target_building.lat, @target_building.lng].join(', ')}, 
-                    "options" => { "travelMode" => "WALKING", "unitSystem" => "IMPERIAL", "display_panel" => true, "panel_id" => "directions"}
-                }
-               )
-       %>
-
-<!--
-      <p>patron = <%= @patron.lat %>, <%= @patron.lng %></p>
-      <p>target building = <%= @target_building.name %>, <%= @target_building.lat %>, <%= @target_building.lng %> </p>
--->
 
       <div id="directions"></div>
 
