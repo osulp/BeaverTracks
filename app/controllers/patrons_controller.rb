@@ -1,14 +1,11 @@
 class PatronsController < ApplicationController
   before_filter :generate_patron
+
   def new
     @title = 'Retrieving Location'
 
     session[:patron] = nil
     @patron =  Patron.new
-
-    # test if on campus
-  #  @lat = session[:geo_location] != nil ? session[:geo_location].lat : ""
-  #  @lng = session[:geo_location] != nil ? session[:geo_location].lng : ""
   end
 
   def create
@@ -17,7 +14,6 @@ class PatronsController < ApplicationController
 
     #@patron.save
 
-    #session[:patron] = @patron
     session['lat'] = params[:patron][:lat]
     session['lng'] = params[:patron][:lng]
     @patron = Patron.from_coords(params[:patron])
