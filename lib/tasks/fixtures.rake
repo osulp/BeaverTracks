@@ -11,7 +11,7 @@ namespace :db do
       (ActiveRecord::Base.connection.tables - skip_tables).each do |table_name|
         #("users").each do |table_name|
         i = "000"
-        File.open(Rails.root.to_s + "/test/fixtures/#{table_name}.yml", 'w') do |file|
+        File.open(Rails.root.to_s + "/spec/fixtures/#{table_name}.yml", 'w') do |file|
         data = ActiveRecord::Base.connection.select_all(sql % table_name)
         file.write data.inject({}) { |hash, record|
         hash["#{table_name}_#{i.succ!}"] = record
