@@ -36,6 +36,8 @@ gem 'gmaps4rails'
 
 group :development, :test do
   gem 'rspec-rails', '>= 2.13.2'
+  gem 'simplecov', '~> 0.7.1'
+  gem 'ruby-prof'
 end
 
 

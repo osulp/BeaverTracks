@@ -14,6 +14,9 @@
 /log/*.log
 /tmp
 
+# Ignore coverage
+/coverage
+
 # Ignore local config
 /config/app.yml
 
