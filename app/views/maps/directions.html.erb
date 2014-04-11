@@ -1,69 +1,19 @@
+<% content_for :head do %>
+  <script>
+    window.map_hash = <%= raw @hash.to_json %>;
+    window.patron_lat = <%= @patron.lat %>;
+    window.patron_lng = <%= @patron.lng %>;
+    window.target_building_lat = <%= @target_building.lat %>;
+    window.target_building_lng = <%= @target_building.lng %>;
+  </script>
+  <%= javascript_include_tag 'directions' %>  
+<% end %>
+
 <h1><%= @title %></h1>
 
-<script type="text/javascript">
-
-  // this check is necessary to see if the page is fully loaded before executing
-  // http://stackoverflow.com/questions/5478450/google-map-error-a-is-null
-  $(document).ready(function () {
-
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    });
-
-
-// code below modified from https://developers.google.com/maps/documentation/javascript/examples/directions-panel
-var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
-
-function initialize() {
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  var mapOptions = {
-    zoom: 16,
-    center: new google.maps.LatLng(<%= @patron.lat %>, <%= @patron.lng %>)
-  };
-  var map = new google.maps.Map(document.getElementById('map'),
-      mapOptions);
-  directionsDisplay.setMap(map);
-  directionsDisplay.setPanel(document.getElementById('directions'));
-
-  calcRoute();
-}
-
-function calcRoute() {
-  var start = new google.maps.LatLng(<%= @patron.lat %>, <%= @patron.lng %>);
-  var end = new google.maps.LatLng(<%= @target_building.lat %>, <%= @target_building.lng %>);
-
-  var request = {
-    origin: start,
-    destination: end,
-    travelMode: google.maps.TravelMode.WALKING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-});
-
-</script>
-
-
-
-  <div id ="container">
-    <div id ="wrapper">
-
-      <div id="map" style='width: 800px; height: 400px;'></div>
-
-      <div id="directions"></div>
-
-    </div>
+<div id ="container">
+  <div id ="wrapper">
+    <div id="map" style='width: 800px; height: 400px;'></div>
+    <div id="directions"></div>
   </div>
+</div>

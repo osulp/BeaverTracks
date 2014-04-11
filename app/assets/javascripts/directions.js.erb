@@ -1,0 +1,52 @@
+// this check is necessary to see if the page is fully loaded before executing
+// http://stackoverflow.com/questions/5478450/google-map-error-a-is-null
+$(document).ready(function () {
+
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+
+    markers = handler.addMarkers(window.map_hash);
+
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+
+
+// code below modified from https://developers.google.com/maps/documentation/javascript/examples/directions-panel
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+
+function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var mapOptions = {
+    zoom: 16,
+    center: new google.maps.LatLng(window.patron_lat, window.patron_lng)
+  };
+  var map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('directions'));
+
+  calcRoute();
+}
+
+function calcRoute() {
+  var start = new google.maps.LatLng(window.patron_lat, window.patron_lng);
+  var end = new google.maps.LatLng(window.target_building_lat, window.target_building_lng);
+
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.WALKING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+});
+
