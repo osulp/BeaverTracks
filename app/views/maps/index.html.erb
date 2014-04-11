@@ -1,32 +1,14 @@
+<% content_for :head do %>
+  <script>
+    window.map_hash = <%= raw @hash.to_json %>;
+  </script>
+  <%= javascript_include_tag 'maps' %>  
+<% end %>
+
 <h1><%= @title %></h1>
 
-<script type="text/javascript">
-
-  // this check is necessary to see if the page is fully loaded before executing
-  // http://stackoverflow.com/questions/5478450/google-map-error-a-is-null
-  $(document).ready(function () {
-
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(16);
-    });
-  });
-</script>
-
-
-  <div id ="container">
-    <div id ="wrapper">
-
-        <div id="map" style='width: 800px; height: 400px;'></div>
-
-      <!--
-       <p>json = <%#= @hash %></p>
-      -->
-
-    </div>
+<div id ="container">
+  <div id ="wrapper">
+    <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
+</div>
