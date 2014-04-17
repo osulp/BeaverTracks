@@ -76,8 +76,7 @@ class MapsController < ApplicationController
     @patron = Patron.from_coords(session)
 
     # set markers, walking icon for patron location
-    @hash = Gmaps4rails.build_markers(Buildings.nearby(@patron) | [@patron]) do |building, marker|
-#    @json = (Buildings.nearby(@patron) | [@patron]).to_gmaps4rails do |building, marker|
+    @hash = Gmaps4rails.build_markers(Buildings.nearby([@patron.lat, @patron.lng]) | [@patron]) do |building, marker|
 
       if building.kind_of? Buildings
         marker.lat building.lat
@@ -96,9 +95,9 @@ class MapsController < ApplicationController
         })
 
         marker.infowindow render_to_string(:partial => "maps/building_tour_infowindow", :locals => { :building => building })
-      end
 
-      if building.kind_of? Patron
+      else
+
         marker.lat building.lat
         marker.lng building.lng
         marker.title "You"

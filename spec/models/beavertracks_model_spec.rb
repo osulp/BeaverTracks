@@ -9,6 +9,8 @@ describe "Buildings" do
     Fairbanks = Buildings.create(lat: 44.5650672912598, lng: -123.280410766602, name: "Fairbanks Hall")
     Weatherford = Buildings.create(lat: 44.5640335083008, lng: -123.280639648438, name: "Weatherford Hall")
 
+    Test_Patron = Patron.from_coords(lat: 44.5641250610352, lng: -123.278312683105)
+    
 
   it "should return buildings sorted in name order" do
     expect(Buildings.list()).to eq([Fairbanks, Goss, Langton, Moreland, Waldo, Weatherford])
@@ -17,4 +19,9 @@ describe "Buildings" do
   it "should return nearby buildings plus original" do
     expect(Buildings.nearby(Langton)).to eq([Langton, Waldo, Moreland, Goss])
   end
+
+  it "should return buildings nearby Patron" do
+    expect(Buildings.nearby([Test_Patron.lat, Test_Patron.lng])).to eq([Langton, Waldo, Moreland, Goss])
+  end
+
 end

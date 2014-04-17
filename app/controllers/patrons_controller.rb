@@ -9,11 +9,6 @@ class PatronsController < ApplicationController
   end
 
   def create
-    # render text: params[:patron].inspect
-    #@patron = Patron.new(params[:patron])
-
-    #@patron.save
-
     session['lat'] = params[:patron][:lat]
     session['lng'] = params[:patron][:lng]
     @patron = Patron.from_coords(params[:patron])
@@ -21,12 +16,11 @@ class PatronsController < ApplicationController
   end
 
 
-
   # param @patron
   # checks if oncampus, and redirects to show/tour map
 
   def redirect_patron(patron)
-    buildings = Buildings.nearby(patron)
+    buildings = Buildings.nearby([patron.lat, patron.lng])
 
     #see if on campus
     if buildings.count > 0
