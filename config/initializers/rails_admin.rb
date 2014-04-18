@@ -6,6 +6,12 @@ RailsAdmin.config do |config|
 
   ################  Global configuration  ################
 
+  # Require authentication before reaching Admin Dashboard
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method &:current_user
+
   # Set the admin name here (optional second array element will appear in red). For example:
   config.main_app_name = ['Beavertracks', 'Admin']
   # or for a more dynamic name:
