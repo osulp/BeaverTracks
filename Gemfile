@@ -54,3 +54,9 @@ gem 'capistrano', '~> 2.0'
 # gem 'debugger'
 
 gem "devise"
+
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+end
