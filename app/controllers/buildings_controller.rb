@@ -20,7 +20,6 @@ class BuildingsController < ApplicationController
     @title = @building.name
 
     @flickr_photo_id = params[:flickr_photo_id]
-    # TEST/SECURE - retrieve Flickr info based on ID
 
     @photo = flickr.photos.getInfo :photo_id => @flickr_photo_id
   end

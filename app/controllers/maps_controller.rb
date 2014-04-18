@@ -24,7 +24,6 @@ class MapsController < ApplicationController
   end
 
 
-
 # Map of Nearby Locations
 
   def locations
@@ -97,7 +96,6 @@ class MapsController < ApplicationController
         marker.infowindow render_to_string(:partial => "maps/building_tour_infowindow", :locals => { :building => building })
 
       else
-
         marker.lat building.lat
         marker.lng building.lng
         marker.title "You"
@@ -115,15 +113,12 @@ class MapsController < ApplicationController
 
         marker.infowindow render_to_string(:partial => "maps/patron_tour_infowindow", :locals => { :building => building })
       end
-
-
     end
 
     @on_campus = session[:campus]
 
     session[:campus] = nil
   end
-
 
 
   # Walking directions from patron location
@@ -133,7 +128,6 @@ class MapsController < ApplicationController
     @patron = Patron.from_coords(session)
 
     @target_building = Buildings.find(params[:target_building_id])
-
   end
 
 end
