@@ -217,7 +217,7 @@ DEPENDENCIES
   actionview-encoded_mail_to (~> 1.0.4)
   activerecord-session_store (~> 0.1.0)
   activeresource (~> 4.0.0)
-  capistrano (= 2.14.2)
+  capistrano (~> 2.0)
   coffee-rails (~> 4.0.1)
   devise
   flickraw-cached
