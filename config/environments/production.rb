@@ -48,9 +48,9 @@ Beavertracks::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( maps.js )
-  config.assets.precompile += %w( directions.js )
-  config.assets.precompile += %w( patrons.geolocation.js )
+  #config.assets.precompile += %w( maps.js )
+  #config.assets.precompile += %w( directions.js )
+  #config.assets.precompile += %w( patrons.geolocation.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
