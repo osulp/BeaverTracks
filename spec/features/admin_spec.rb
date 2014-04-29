@@ -9,6 +9,9 @@ describe "viewing the home page" do
     it "should not have a link to the admin path" do
       expect(page).not_to have_link("Admin", :href => rails_admin_path)
     end
+    it "should not have a link to sign up" do
+      expect(page).not_to have_content('Sign up')
+    end
   end
 end
 

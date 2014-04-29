@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe "Buildings" do
   before(:each) do
-
     @langton = create(:buildings, name: "Langton Hall", lat: 44.5641250610352, lng: -123.278312683105)
     @waldo = create(:buildings, name: "Waldo Hall", lat: 44.5641059875488, lng: -123.277206420898)
     @moreland = create(:buildings, name: "Moreland Hall", lat: 44.5642700195312, lng: -123.279388427734)
