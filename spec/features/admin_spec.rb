@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-#describe "rails_admin" do
-
 describe "viewing the home page" do
   before(:each) do
     visit root_path
