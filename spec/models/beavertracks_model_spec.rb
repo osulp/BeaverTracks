@@ -1,27 +1,29 @@
 require 'spec_helper'
 
 describe "Buildings" do
+  before(:each) do
 
-    Langton = Buildings.create(lat: 44.5641250610352, lng: -123.278312683105, name: "Langton Hall")
-    Waldo = Buildings.create(lat: 44.5641059875488, lng: -123.277206420898, name: "Waldo Hall")
-    Moreland = Buildings.create(lat: 44.5642700195312, lng: -123.279388427734, name: "Moreland Hall")
-    Goss = Buildings.create(lat: 44.5632972717285, lng: -123.277648925781, name: "Goss Stadium at Coleman Field & Dixon Recreation Center")
-    Fairbanks = Buildings.create(lat: 44.5650672912598, lng: -123.280410766602, name: "Fairbanks Hall")
-    Weatherford = Buildings.create(lat: 44.5640335083008, lng: -123.280639648438, name: "Weatherford Hall")
+    @langton = create(:buildings, name: "Langton Hall", lat: 44.5641250610352, lng: -123.278312683105)
+    @waldo = create(:buildings, name: "Waldo Hall", lat: 44.5641059875488, lng: -123.277206420898)
+    @moreland = create(:buildings, name: "Moreland Hall", lat: 44.5642700195312, lng: -123.279388427734)
+    @goss = create(:buildings, name: "Goss Stadium at Coleman Field & Dixon Recreation Center", lat: 44.5632972717285, lng: -123.277648925781)
+    @fairbanks = create(:buildings, name: "Fairbanks Hall", lat: 44.5650672912598, lng: -123.280410766602)
+    @weatherford = create(:buildings, name: "Weatherford Hall", lat: 44.5640335083008, lng: -123.280639648438)
 
-    Test_Patron = Patron.from_coords(lat: 44.5641250610352, lng: -123.278312683105)
+    @patron = create(:patron)
+  end
     
 
   it "should return buildings sorted in name order" do
-    expect(Buildings.list()).to eq([Fairbanks, Goss, Langton, Moreland, Waldo, Weatherford])
+    expect(Buildings.list()).to eq([@fairbanks, @goss, @langton, @moreland, @waldo, @weatherford])
   end
 
   it "should return nearby buildings plus original" do
-    expect(Buildings.nearby(Langton)).to eq([Langton, Waldo, Moreland, Goss])
+    expect(Buildings.nearby(@langton)).to eq([@langton, @waldo, @moreland, @goss])
   end
 
   it "should return buildings nearby Patron" do
-    expect(Buildings.nearby([Test_Patron.lat, Test_Patron.lng])).to eq([Langton, Waldo, Moreland, Goss])
+    expect(Buildings.nearby([@patron.lat, @patron.lng])).to eq([@langton, @waldo, @moreland, @goss])
   end
 
 end
