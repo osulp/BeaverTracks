@@ -35,6 +35,7 @@ gem 'gmaps4rails'
 
 
 group :development, :test do
+  gem 'factory_girl_rails', "~> 4.0"
   gem 'rspec-rails', '>= 2.13.2'
   gem 'simplecov', '~> 0.7.1'
   gem 'ruby-prof'
@@ -59,4 +60,5 @@ gem "devise"
 group :test do
   gem 'capybara'
   gem 'poltergeist'
+  gem 'database_cleaner'
 end
