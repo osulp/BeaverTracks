@@ -33,6 +33,7 @@ gem "geocoder", "~> 1.1.8"
 
 gem 'gmaps4rails'
 
+gem 'yard'
 
 group :development, :test do
   gem 'factory_girl_rails', "~> 4.4.0"
