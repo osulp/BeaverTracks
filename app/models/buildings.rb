@@ -6,6 +6,8 @@ class Buildings < ActiveRecord::Base
   geocoded_by :name, :latitude => :lat, :longitude => :lng 
 
   # Return 3 nearby buildings 
+  # @param [Object] Building or Patron object or lat/lng pair
+  # @return [List] 3 nearby buildings and original object
   def self.nearby(obj) 
      return Buildings.near(obj, 1)[0..3]  # 3 buildings and itself
   end 

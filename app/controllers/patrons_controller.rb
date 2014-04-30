@@ -5,7 +5,7 @@ class PatronsController < ApplicationController
     @title = 'Retrieving Location'
 
     session[:patron] = nil
-    @patron =  Patron.new
+    @patron = Patron.new
   end
 
   def create
@@ -15,18 +15,17 @@ class PatronsController < ApplicationController
     redirect_patron(@patron)
   end
 
-
-  # param @patron
   # checks if oncampus, and redirects to show/tour map
+  # @param [OpenStruct] patron
 
   def redirect_patron(patron)
     buildings = Buildings.nearby([patron.lat, patron.lng])
 
-    #see if on campus
+    # see if on campus
     if buildings.count > 0
       session[:campus] = true
     else
-      #set location to library
+      # if not on campus, set location to library
       session[:campus] = false
       session[:lat] = 44.5650618928
       session[:lng] = -123.27603917

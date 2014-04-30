@@ -3,6 +3,7 @@ class MapsController < ApplicationController
   def index
     @title = "Map"
 
+    # Create markers for all Buildings
     @hash = Gmaps4rails.build_markers(Buildings.all) do |building, marker|
       marker.lat building.lat
       marker.lng building.lng
@@ -31,7 +32,7 @@ class MapsController < ApplicationController
 
     @title = "Nearby " + @building.name
 
-    # set building markers, different one for selected building
+    # set building markers, using different one for selected building
     @hash = Gmaps4rails.build_markers(Buildings.nearby(@building)) do |building, marker|
       marker.lat building.lat
       marker.lng building.lng
@@ -74,7 +75,7 @@ class MapsController < ApplicationController
 
     @patron = Patron.from_coords(session)
 
-    # set markers, walking icon for patron location
+    # set markers, using walking icon for patron location
     @hash = Gmaps4rails.build_markers(Buildings.nearby([@patron.lat, @patron.lng]) | [@patron]) do |building, marker|
 
       if building.kind_of? Buildings
