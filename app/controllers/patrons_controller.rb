@@ -29,7 +29,7 @@ class PatronsController < ApplicationController
       session[:campus] = false
       session[:lat] = 44.5650618928
       session[:lng] = -123.27603917
-      patron = Patron.from_coords(session)
+      Patron.from_coords(session)
     end
 
     redirect_to(tour_maps_path)
@@ -39,8 +39,7 @@ class PatronsController < ApplicationController
 
   def generate_patron
     if session[:lat] && session[:lng]
-      @patron = Patron.from_coords(:lat => session[:lat], :lng => session[:lng])
+      @patron = Patron.from_coords(lat: session[:lat], lng: session[:lng])
     end
   end
-
 end

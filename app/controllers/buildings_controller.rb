@@ -1,7 +1,6 @@
 class BuildingsController < ApplicationController
-
   def index
-    @title = "Building List"
+    @title = 'Building List'
 
     @buildings = Buildings.list
   end
@@ -11,8 +10,8 @@ class BuildingsController < ApplicationController
 
     @title = @building.name
 
-    @photos = flickr.photos.search :user_id => @flickr_user_id, :tags => @building.flickr_tag
-    @photos = @photos.sort_by {|a| a.title}
+    @photos = flickr.photos.search user_id: @flickr_user_id, tags: @building.flickr_tag
+    @photos = @photos.sort_by { |a| a.title }
   end
 
   def flickr_view
@@ -21,12 +20,12 @@ class BuildingsController < ApplicationController
 
     @flickr_photo_id = params[:flickr_photo_id]
 
-    @photo = flickr.photos.getInfo :photo_id => @flickr_photo_id
+    @photo = flickr.photos.getInfo photo_id: @flickr_photo_id
   end
 
   def image
     @building = Buildings.find(params[:id])
 
-    @title = @building.name + " - Large Image"
+    @title = @building.name + ' - Large Image'
   end
 end
