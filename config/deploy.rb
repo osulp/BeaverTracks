@@ -16,7 +16,6 @@ default_run_options[:pty] = true
 set :scm, :git
 set :branch, config['branch']
 set :deploy_via, :remote_cache
-set :deploy_to, config['deploy_to']
 set :use_sudo, false
 set :keep_releases, 5
 set :shared_children, shared_children + %w{pids sockets tmp}
