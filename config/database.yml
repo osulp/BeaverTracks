@@ -27,8 +27,9 @@ production:
   adapter: <%= ENV['BEAVERTRACKS_ADAPTER'] || "mysql2" %>
   encoding: utf8
   reconnect: false
-  database: <%= "#{ENV['BEAVERTRACKS_DB_PREFIX']}_dev" %>
+  database: <%= "#{ENV['BEAVERTRACKS_DB_PREFIX']}_prod" %>
   pool: 5
   username: <%= ENV['BEAVERTRACKS_DB_USERNAME'] %>
   password: <%= ENV['BEAVERTRACKS_DB_PASSWORD'] %>
   host: <%= ENV['BEAVERTRACKS_DB_HOST'] %>
+  port: <%= ENV['BEAVERTRACKS_DB_PORT'] %>
