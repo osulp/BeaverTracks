@@ -23,6 +23,17 @@ test:
   pool: 5
   timeout: 5000
 
+staging:
+  adapter: <%= ENV['BEAVERTRACKS_ADAPTER'] || "mysql2" %>
+  encoding: utf8
+  reconnect: false
+  database: <%= "#{ENV['BEAVERTRACKS_DB_PREFIX']}_staging" %>
+  pool: 5
+  username: <%= ENV['BEAVERTRACKS_DB_USERNAME'] %>
+  password: <%= ENV['BEAVERTRACKS_DB_PASSWORD'] %>
+  host: <%= ENV['BEAVERTRACKS_DB_HOST'] %>
+  port: <%= ENV['BEAVERTRACKS_DB_PORT'] %>
+
 production:
   adapter: <%= ENV['BEAVERTRACKS_ADAPTER'] || "mysql2" %>
   encoding: utf8
