@@ -1,5 +1,8 @@
 # BeaverTracks
 
+[![Build
+Status](https://travis-ci.org/osulp/BeaverTracks.svg?branch=master)](https://travis-ci.org/osulp/BeaverTracks)
+
 ## Overview
 
 BeaverTracks is a mobile website that provides information on historical locations and a walking tour of the Oregon State University campus in Corvallis, Oregon.
