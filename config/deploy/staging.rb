@@ -13,6 +13,7 @@ set :branch, config['branch']
 set (:god_app_path) {"#{current_path}/#{config['god']['app_path']}"}
 set :god_sites_path,  config['god']['sites_path']
 set :deploy_to, config['deploy_to']
+set :rails_env, :staging
 # Deploy Commands
 # Override deploy to inform god to do the restarts.
 namespace :deploy do
