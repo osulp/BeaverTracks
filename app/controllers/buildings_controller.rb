@@ -10,8 +10,12 @@ class BuildingsController < ApplicationController
 
     @title = @building.name
 
-    @photos = flickr.photos.search user_id: @flickr_user_id, tags: @building.flickr_tag
-    @photos = @photos.sort_by { |a| a.title }
+    begin
+      @photos = flickr.photos.search user_id: @flickr_user_id, tags: @building.flickr_tag
+      @photos = @photos.sort_by { |a| a.title }
+    rescue => ex
+      logger.error ex.message
+    end
   end
 
   def flickr_view
