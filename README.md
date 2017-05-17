@@ -49,7 +49,7 @@ BEAVERTRACKS_GA_DOMAIN=
 ### Buildings
 
 Building information, including name, description, Flickr image URLs, etc. is managed via the RailsAdmin screens.
-Current buildings (as of April 2014) are stored as fixtures, and can be loaded with: `rake db:fixtures:load`
+Current buildings (as of April 2014) are stored as fixtures, and can be loaded with: `bundle exec rake db:fixtures:load FIXTURES=buildings FIXTURES_PATH='spec/fixtures'`
 
 #### Geocoding
 
