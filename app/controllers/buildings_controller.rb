@@ -24,7 +24,11 @@ class BuildingsController < ApplicationController
 
     @flickr_photo_id = params[:flickr_photo_id]
 
-    @photo = flickr.photos.getInfo photo_id: @flickr_photo_id
+    begin
+      @photo = flickr.photos.getInfo photo_id: @flickr_photo_id
+    rescue => ex
+      logger.error ex.message
+    end
   end
 
   def image

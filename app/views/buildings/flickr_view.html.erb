@@ -1,3 +1,4 @@
+<% begin %>
 <h1><%= @title %></h1>
 
 <% cache @photo do %>
@@ -17,3 +18,7 @@
 </div>
 
 <%end%>
+
+<% rescue Exception %>
+  <p>Images are currently unavailable.</p>
+<% end %>
