@@ -1,5 +1,7 @@
 # BeaverTracks
 
+Development of this app was discontinued in favor of a newer Rails app (currently private). That newer app is running at http://tour.library.oregonstate.edu
+
 [![Build
 Status](https://travis-ci.org/osulp/BeaverTracks.svg?branch=master)](https://travis-ci.org/osulp/BeaverTracks)
 
